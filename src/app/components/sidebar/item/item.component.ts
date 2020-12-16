@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ItemComponent implements OnInit {
 
   constructor() { }
-
+  userLog=true;
   ngOnInit(): void {
   }
 
