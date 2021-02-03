@@ -4,7 +4,7 @@
 
 <div id="buttons-active">
     <div class="line-top"></div>
-    <button mat-button class="button-nav"><mat-icon aria-hidden="false">home</mat-icon>
+    <button routerLink="/inicio" mat-button class="button-nav"><mat-icon aria-hidden="false">home</mat-icon>
         Inicio</button>
     <div class="line-bottom"></div>
 
@@ -20,7 +20,7 @@
     
     <div *ngIf="userLog">
     <div class="line-top"></div>
-    <button mat-button class="button-nav"><mat-icon aria-hidden="false">local_shipping</mat-icon>
+    <button routerLink="/nuevo_foodtruck" mat-button class="button-nav"><mat-icon aria-hidden="false">local_shipping</mat-icon>
         Nuevo Foodtruck</button>
     <div class="line-bottom"></div>
     </div>
