@@ -1,1 +1,77 @@
-<p>signup works!</p>
+<div id="form-container">
+  <img
+    src="../../../assets/img/foodtruck-image.png"
+    alt="Foodtruck"
+    width="100"
+    height="100"
+    id="top-image-form"
+  />
+  <mat-card id="form-card">
+    <mat-card-content>
+      <form
+        ngNativeValidate
+        #initForm="ngForm"
+        class="form-signin"
+        (ngSubmit)="
+          register(
+            nombre.value,
+            apellido.value,
+            email.value,
+            password.value,
+            telefono.value
+          )
+        "
+      >
+        <input
+          #nombre
+          type="text"
+          class="form-control form-input"
+          placeholder="Nombre"
+          required
+          autofocus
+        />
+        <input
+          #apellido
+          type="text"
+          class="form-control form-input"
+          placeholder="Apellido"
+          required
+          autofocus
+        />
+        <input
+          #email
+          type="email"
+          class="form-control form-input"
+          placeholder="Email"
+          required
+          autofocus
+        />
+        <p class="alert-form" *ngIf="error.status === 409">
+          El email ya está en uso
+        </p>
+        <input
+          #password
+          type="password"
+          class="form-control form-input form-password-input"
+          placeholder="Contraseña"
+          required
+        />
+        <input
+          #telefono
+          type="text"
+          class="form-control form-input"
+          placeholder="Teléfono"
+        />
+        <button
+          mat-raised-button
+          type="submit"
+          class="form-button"
+          id="submit-form-button"
+        >
+          Registrarme
+        </button>
+      </form>
+      <a href="/login" id="back-form-link">Volver atrás</a>
+    </mat-card-content>
+  </mat-card>
+</div>

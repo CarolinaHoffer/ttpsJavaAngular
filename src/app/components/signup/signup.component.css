@@ -1,0 +1,47 @@
+#form-card {
+  position: absolute;
+  height: 85%;
+  width: 50%;
+  left: 30%;
+  margin-top: -45px;
+  z-index: 3;
+  border-radius: 10px;
+}
+
+.form-input {
+  width: 85%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 5%;
+}
+
+#top-image-form {
+  position: relative;
+  left: 50%;
+  z-index: 4;
+}
+
+.form-button {
+  box-shadow: none;
+  border: none;
+  color: white;
+  font-weight: normal;
+  height: 35px;
+  position: relative;
+  background-color: #eb504c;
+  width: 30%;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  left: 35%;
+}
+
+#back-form-link {
+  position: relative;
+  color: #878787;
+  left: 42%;
+}
+
+#alert-form {
+  color: red;
+  text-align: center;
+}

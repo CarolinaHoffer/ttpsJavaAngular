@@ -19,8 +19,5 @@ export class LoginComponent implements OnInit {
       (success) => console.log('ir al home'), //this.router.navigate(['']),
       (error) => (this.error = error)
     );
-    if (this.error.status == 403) {
-      console.log('ir al home'); //this.router.navigate([''])
-    }
   }
 }
