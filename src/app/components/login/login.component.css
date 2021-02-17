@@ -1,0 +1,81 @@
+#left-block {
+  position: relative;
+  width: 45%;
+  height: 100%;
+  background-color: #bde6ea;
+}
+
+#container {
+  display: flex;
+}
+
+#login-form-card {
+  position: relative;
+  width: 65%;
+  height: 60%;
+  top: 15%;
+  left: 35%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #bdc3c7;
+}
+
+#foodtruck-city-image {
+  position: relative;
+  left: 25%;
+}
+
+#login-form-card {
+  border-radius: 2%;
+}
+
+#card-header {
+  justify-content: center;
+}
+
+#card-title {
+  font-size: x-large;
+}
+
+.login-form-input {
+  position: relative;
+  width: 90%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  left: 2%;
+}
+
+.form-button {
+  box-shadow: none;
+  border: none;
+  color: white;
+  font-weight: normal;
+  height: 35px;
+  position: relative;
+}
+
+#submit-form-button {
+  width: 80%;
+  left: 8%;
+  background-color: #eb504c;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.alert-form {
+  color: red;
+  text-align: center;
+}
+
+#register-form-button {
+  background-color: #60b1ba;
+  margin-top: 5px;
+  width: 65%;
+  left: 15%;
+}
+
+#subtitle-form {
+  text-align: center;
+  font-size: initial;
+  margin-top: 20px;
+}

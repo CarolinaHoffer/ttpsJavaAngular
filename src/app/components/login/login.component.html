@@ -1,0 +1,69 @@
+<body class="text-center">
+  <div id="container">
+    <div id="left-block">
+      <img
+        src="../../../assets/img/camioneta-edificios.png"
+        alt="Foodtruck en la ciudad"
+        width="550"
+        height="600"
+        id="foodtruck-city-image"
+      />
+    </div>
+    <div id="right-block">
+      <mat-card id="login-form-card">
+        <mat-card-header id="card-header">
+          <mat-card-title id="card-title">Iniciar Sesión</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form
+            ngNativeValidate
+            #initForm="ngForm"
+            class="form-signin"
+            (ngSubmit)="login(email.value, password.value)"
+          >
+            <input
+              #email
+              type="email"
+              id="inputEmail"
+              class="form-control login-form-input"
+              placeholder="Email"
+              required
+              autofocus
+            />
+            <input
+              #password
+              type="password"
+              id="inputPassword"
+              class="form-control login-form-input"
+              placeholder="Contraseña"
+              required
+            />
+            <p class="alert-form" *ngIf="error.status === 401">
+              Email y/o contraseña incorrectos
+            </p>
+            <button
+              mat-raised-button
+              type="submit"
+              class="form-button"
+              id="submit-form-button"
+            >
+              Ingresar
+            </button>
+          </form>
+          <mat-divider></mat-divider>
+          <p id="subtitle-form">¿No tienes una cuenta?</p>
+          <a href="/registro">
+            <button
+              mat-raised-button
+              type="submit"
+              class="form-button"
+              id="register-form-button"
+            >
+              Registrarme
+            </button>
+          </a>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</body>
