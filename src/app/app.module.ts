@@ -18,6 +18,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { RegistrofoodtruckComponent } from './components/registrofoodtruck/registrofoodtruck.component';
+import { NavbarToggleService } from './services/navbar-service/navbar-toggle.service';
+import { from } from 'rxjs';
+
 
 
 @NgModule({
@@ -28,6 +32,7 @@ import {MatCardModule} from '@angular/material/card';
     InicioComponent,
     ContentInicioComponent,
     ContentComponent,
+    RegistrofoodtruckComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import {MatCardModule} from '@angular/material/card';
     MatCardModule,
     MatGridListModule,
   ],
-  providers: [],
+  providers: [NavbarToggleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

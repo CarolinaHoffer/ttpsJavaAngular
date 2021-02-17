@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NavbarToggleService } from 'src/app/services/navbar-service/navbar-toggle.service';
 
 @Component({
   selector: 'app-item',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  constructor() { }
   userLog=true;
   ngOnInit(): void {
   }
 
+
+  constructor(private navbarService: NavbarToggleService) { }
+
+  closeNav(){
+    this.navbarService.close();
+  }
+  // @Output() openNav = new EventEmitter();
+  // openSideNav(e:any) {
+  //   this.openNav.emit(e);
+  // }
 }
