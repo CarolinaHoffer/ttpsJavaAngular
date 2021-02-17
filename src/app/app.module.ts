@@ -11,6 +11,7 @@ import { ItemComponent } from './components/sidebar/item/item.component';
 import { NavComponent } from './components/sidebar/nav/nav.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { TemplateComponent } from './components/template/template.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     ItemComponent,
     LoginComponent,
     SignupComponent,
+    TemplateComponent,
   ],
   imports: [
     BrowserModule,

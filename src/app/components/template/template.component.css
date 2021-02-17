@@ -1,0 +1,21 @@
+#container {
+  position: relative;
+  height: 100%;
+  background-color: #cceef0;
+  display: grid;
+  z-index: 0;
+}
+
+#city-background-image {
+  position: relative;
+  z-index: 1;
+}
+
+#form-container {
+  z-index: 2;
+  position: absolute;
+  width: 70%;
+  height: 85%;
+  left: 15%;
+  top: 5%;
+}
