@@ -12,6 +12,7 @@ import { NavComponent } from './components/sidebar/nav/nav.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { TemplateComponent } from './components/template/template.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 
-//Services
+// ---- Services ----
 import { AuthService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     LoginComponent,
     SignupComponent,
     TemplateComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
