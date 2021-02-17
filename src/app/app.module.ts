@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemComponent } from './components/sidebar/item/item.component';
 import { NavComponent } from './components/sidebar/nav/nav.component';
 import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,13 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, ItemComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    NavComponent,
+    ItemComponent,
+    LoginComponent,
+    SignupComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
