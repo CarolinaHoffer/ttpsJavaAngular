@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
         this.datos.foodtrucker
       )
       .subscribe(
-        (success) => this.router.navigate(['']),
+        (success) => this.router.navigate(['homepage']),
         (error) => (this.error = error)
       );
   }
