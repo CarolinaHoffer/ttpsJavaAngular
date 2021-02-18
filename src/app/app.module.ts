@@ -27,7 +27,8 @@ import { MatDividerModule } from '@angular/material/divider';
 //Services
 import { AuthService } from './services/authentication.service';
 import { UserService } from './services/user.service';
-import { InicioComponent } from './components/inicio/inicio.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+
 
 const appRoutes: Routes = [
   {
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
     FormTemplateComponent,
     HomeTemplateComponent,
     NavbarComponent,
-    InicioComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
