@@ -14,6 +14,7 @@ import { FormTemplateComponent } from './components/formTemplate/formTemplate.co
 import { NavbarComponent } from './components/home/navbar/navbar.component';
 import { HomeTemplateComponent } from './components/home/home-template/home-template.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NewFoodtruckComponent } from './components/new-foodtruck/new-foodtruck.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     HomeTemplateComponent,
     NavbarComponent,
     ProfileComponent,
+    NewFoodtruckComponent,
   ],
   imports: [
     BrowserModule,

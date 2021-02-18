@@ -7,6 +7,8 @@ import { FormTemplateComponent } from '../components/formTemplate/formTemplate.c
 import { SignupComponent } from '../components/signup/signup.component';
 import { HomeTemplateComponent } from '../components/home/home-template/home-template.component';
 import { ProfileComponent } from '../components/profile/profile.component';
+import { NewFoodtruckComponent } from '../components/new-foodtruck/new-foodtruck.component';
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -16,7 +18,10 @@ const appRoutes: Routes = [
   {
     path: 'new',
     component: FormTemplateComponent,
-    children: [{ path: 'user', component: SignupComponent }],
+    children: [
+      { path: 'user', component: SignupComponent },
+      { path: 'foodtruck', component: NewFoodtruckComponent },
+    ],
   },
   { path: 'login', component: LoginComponent },
 ];
