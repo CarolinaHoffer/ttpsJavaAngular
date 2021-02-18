@@ -29,6 +29,7 @@ import { MatDividerModule } from '@angular/material/divider';
 // ---- Services ----
 import { AuthService } from './services/authentication.service';
 import { UserService } from './services/user.service';
+import { FoodtruckServicesService } from './services/foodtruckServices.service';
 
 const appRoutes: Routes = [
   {
@@ -60,7 +61,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatDividerModule,
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService, UserService, FoodtruckServicesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
