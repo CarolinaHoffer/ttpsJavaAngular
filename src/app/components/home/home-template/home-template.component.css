@@ -1,0 +1,16 @@
+#container {
+  display: flex;
+  position: relative;
+}
+
+#left-block {
+  position: relative;
+  width: 20%;
+  height: 627px;
+  background: rgb(130, 208, 211);
+}
+
+#right-block {
+  position: relative;
+  width: 80%;
+}

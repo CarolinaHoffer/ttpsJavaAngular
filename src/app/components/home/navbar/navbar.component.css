@@ -1,0 +1,38 @@
+#logo {
+  margin-left: 30px;
+}
+
+button {
+  width: 100%;
+}
+mat-divider {
+  height: 100px;
+}
+
+.line-top {
+  height: 2px;
+  background: white;
+  margin-top: 20px;
+}
+
+.line-bottom {
+  height: 2px;
+  background: white;
+  margin-bottom: 20px;
+}
+
+.button-nav {
+  text-align: left;
+  font-size: larger;
+  color: rgb(53, 49, 49);
+}
+
+.mat-icon {
+  margin-right: 5px;
+}
+
+#buttons-logout {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}

@@ -1,0 +1,54 @@
+<div id="nav-container">
+  <div id="camion">
+    <img src="assets/img/logo.png" id="logo" />
+  </div>
+
+  <div id="buttons-active">
+    <div class="line-top"></div>
+    <button mat-button class="button-nav">
+      <mat-icon aria-hidden="false">home</mat-icon> Inicio
+    </button>
+    <div class="line-bottom"></div>
+
+    <div class="line-top"></div>
+    <button mat-button class="button-nav">
+      <mat-icon aria-hidden="false">search</mat-icon> Buscar foodtruck
+    </button>
+    <div class="line-bottom"></div>
+
+    <div class="line-top"></div>
+    <button mat-button class="button-nav">
+      <mat-icon aria-hidden="false">library_add</mat-icon> Nuevo Evento
+    </button>
+    <div class="line-bottom"></div>
+
+    <div *ngIf="userLog">
+      <div class="line-top"></div>
+      <button mat-button class="button-nav">
+        <mat-icon aria-hidden="false">local_shipping</mat-icon> Nuevo Foodtruck
+      </button>
+      <div class="line-bottom"></div>
+    </div>
+
+    <div class="line-top"></div>
+    <button mat-button class="button-nav">
+      <mat-icon aria-hidden="false">today</mat-icon> Gestionar eventos
+    </button>
+    <div class="line-bottom"></div>
+
+    <div *ngIf="userLog">
+      <div class="line-top"></div>
+      <button mat-button class="button-nav">
+        <mat-icon aria-hidden="false">event_note</mat-icon> Gestionar pedidos
+      </button>
+      <div class="line-bottom"></div>
+    </div>
+  </div>
+  <div id="buttons-logout">
+    <div class="line-top"></div>
+    <button mat-button class="button-nav" id="logout">
+      <mat-icon aria-hidden="false">reply_all</mat-icon> Cerrar sesión
+    </button>
+    <div class="line-bottom"></div>
+  </div>
+</div>
