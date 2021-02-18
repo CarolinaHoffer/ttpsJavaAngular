@@ -6,12 +6,13 @@ import { Router } from '@angular/router';
 import { tap, shareReplay } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
+import { AuthService } from './authentication.service';
 
 @Injectable()
 export class UserService {
   url: String = environment.url;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
 
   register(
     nombre: string,
@@ -63,5 +64,16 @@ export class UserService {
           return response;
         })
       );
+  }
+
+  misFoodtrucks() {
+    let idUser;
+    idUser = this.authService.getCurrentUserId();
+    return this.http
+      .get(
+        this.url.concat('usuarios/').concat(idUser).concat('/foodtrucks'),
+        { withCredentials: true }
+      )
+      .pipe(tap((response) => console.log('se encontraron los foodtrucks'), shareReplay()));
   }
 }

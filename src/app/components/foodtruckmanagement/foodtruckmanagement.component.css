@@ -1,0 +1,16 @@
+#foodtruckmanagement{
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
+table {
+    width: 98%;
+  }
+
+#descripcion{
+    max-width: 150px;
+    margin-right: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

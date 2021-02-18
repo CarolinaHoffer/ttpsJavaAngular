@@ -8,12 +8,14 @@ import { SignupComponent } from '../components/signup/signup.component';
 import { HomeTemplateComponent } from '../components/home/home-template/home-template.component';
 import { ProfileComponent } from '../components/profile/profile.component';
 import { HomepageComponent } from '../components/homepage/homepage.component';
+import { FoodtruckmanagementComponent } from '../components/foodtruckmanagement/foodtruckmanagement.component';
 
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeTemplateComponent,
-    children: [{ path: 'profile', component: ProfileComponent }, {path:'homepage', component: HomepageComponent}]
+    children: [{ path: 'profile', component: ProfileComponent }, {path:'homepage', component: HomepageComponent},
+               { path: 'foodtruckmanagement', component: FoodtruckmanagementComponent }]
   },
   {
     path: 'new',

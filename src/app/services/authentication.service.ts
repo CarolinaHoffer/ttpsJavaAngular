@@ -28,6 +28,13 @@ export class AuthService {
     return localStorage.getItem('user');
   }
 
+  getCurrentUserId() {
+    var respuesta = this.getCurrentUser()
+    var user = JSON.parse(respuesta || '{}');
+    respuesta = user.id.toString();
+    return respuesta || "#";
+  }
+
   login(email: string, contrasenia: string) {
     return this.http
       .post(

@@ -1,0 +1,51 @@
+<div id="foodtruckmanagement">
+    <p style="font-size: 30px;letter-spacing: 1px; margin-bottom: 1em;"><strong>Mis foodtrucks</strong></p>
+    <div>
+        <table mat-table [dataSource]="foodtrucks" class="mat-elevation-z8">
+            <!-- Foodtruck Column -->
+            <ng-container matColumnDef="foodtruck">
+                <th mat-header-cell *matHeaderCellDef> Foodtruck </th>
+                <td mat-cell *matCellDef="let foodtruck"> {{foodtruck.nombre}} </td>
+            </ng-container>
+
+            <!-- Descripcion Column -->
+            <ng-container matColumnDef="descripcion">
+                <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+                <td mat-cell *matCellDef="let foodtruck" id="descripcion"> {{foodtruck.descripcion}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore consectetur similique illo aut tenetur molestiae fuga commodi natus eaque vero quisquam optio voluptate ex esse quibusdam, ab iusto. Fuga, nulla. </td>
+            </ng-container>
+
+            <!-- Provincia Column -->
+            <ng-container matColumnDef="provincia">
+                <th mat-header-cell *matHeaderCellDef> Provincia </th>
+                <td mat-cell *matCellDef="let foodtruck"> {{foodtruck.provincia}} </td>
+            </ng-container>
+
+            <!-- Ciudad Column -->
+            <ng-container matColumnDef="ciudad">
+                <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+                <td mat-cell *matCellDef="let foodtruck"> {{foodtruck.ciudad}} </td>
+            </ng-container>
+
+            <!-- Promedio Column -->
+            <ng-container matColumnDef="promedio">
+                <th mat-header-cell *matHeaderCellDef> Promedio </th>
+                <td mat-cell *matCellDef="let foodtruck"> {{foodtruck.promedioTotal}} </td>
+            </ng-container>
+
+            <!-- Editar Column -->
+            <ng-container matColumnDef="editar">
+                <th mat-header-cell *matHeaderCellDef> Editar </th>
+                <td mat-cell *matCellDef="let foodtruck"> <a href="#"><mat-icon>edit</mat-icon></a> </td>
+            </ng-container>
+
+            <!-- Eliminar Column -->
+            <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                <td mat-cell *matCellDef="let foodtruck"> <a href="#"><mat-icon>delete</mat-icon></a> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>

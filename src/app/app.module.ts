@@ -24,11 +24,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
 
 // ---- Services ----
 import { AuthService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { FoodtruckmanagementComponent } from './components/foodtruckmanagement/foodtruckmanagement.component';
 
 
 const appRoutes: Routes = [
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     ProfileComponent,
     HomepageComponent,
+    FoodtruckmanagementComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatCardModule,
     MatDividerModule,
+    MatTableModule,
   ],
   providers: [AuthService, UserService],
   bootstrap: [AppComponent],

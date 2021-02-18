@@ -22,6 +22,7 @@ export class FoodtruckService {
         this.url.concat('foodtrucks/rankeados'),
         { withCredentials: true }
       )
-      .pipe(tap((response) => console.log('se genero bien'), shareReplay()));
+      .pipe(tap((response) => console.log('se encontraron los foodtrucks rankeados'), shareReplay()));
   }
+
 }
