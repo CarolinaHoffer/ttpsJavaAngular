@@ -21,7 +21,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   private setSession(user: any) {
-    localStorage.setItem('user', user);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   getCurrentUser() {
@@ -43,7 +43,10 @@ export class AuthService {
 
   logout() {
     return this.http
-      .post(this.url.concat('logout'), {})
-      .subscribe((success) => localStorage.removeItem('user'));
+      .post(this.url.concat('logout'), {}, { withCredentials: true })
+      .pipe(
+        tap((response) => localStorage.removeItem('user')),
+        shareReplay()
+      );
   }
 }

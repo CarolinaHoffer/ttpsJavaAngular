@@ -7,15 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // ---- Components ----
-import { ItemComponent } from './components/sidebar/item/item.component';
-import { NavComponent } from './components/sidebar/nav/nav.component';
+import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { TemplateComponent } from './components/template/template.component';
+import { FormTemplateComponent } from './components/formTemplate/formTemplate.component';
+import { NavbarComponent } from './components/home/navbar/navbar.component';
+import { HomeTemplateComponent } from './components/home/home-template/home-template.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { AppComponent } from './app.component';
 
 // ---- Material ----
 
@@ -39,11 +39,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    ItemComponent,
     LoginComponent,
     SignupComponent,
-    TemplateComponent,
+    FormTemplateComponent,
+    HomeTemplateComponent,
+    NavbarComponent,
     ProfileComponent,
   ],
   imports: [

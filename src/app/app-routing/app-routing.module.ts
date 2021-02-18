@@ -3,13 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 
 //components
 import { LoginComponent } from '../components/login/login.component';
-import { TemplateComponent } from '../components/template/template.component';
+import { FormTemplateComponent } from '../components/formTemplate/formTemplate.component';
 import { SignupComponent } from '../components/signup/signup.component';
+import { HomeTemplateComponent } from '../components/home/home-template/home-template.component';
 
 const appRoutes: Routes = [
   {
+    path: '',
+    component: HomeTemplateComponent,
+    children: [],
+  },
+  {
     path: 'new',
-    component: TemplateComponent,
+    component: FormTemplateComponent,
     children: [{ path: 'user', component: SignupComponent }],
   },
   { path: 'login', component: LoginComponent },
