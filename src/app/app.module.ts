@@ -14,6 +14,8 @@ import { FormTemplateComponent } from './components/formTemplate/formTemplate.co
 import { NavbarComponent } from './components/home/navbar/navbar.component';
 import { HomeTemplateComponent } from './components/home/home-template/home-template.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NewFoodtruckComponent } from './components/new-foodtruck/new-foodtruck.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -28,8 +30,7 @@ import { MatDividerModule } from '@angular/material/divider';
 // ---- Services ----
 import { AuthService } from './services/authentication.service';
 import { UserService } from './services/user.service';
-import { HomepageComponent } from './components/homepage/homepage.component';
-
+import { FoodtruckServicesService } from './services/foodtruckServices.service';
 
 const appRoutes: Routes = [
   {
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     ProfileComponent,
     HomepageComponent,
+    NewFoodtruckComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatDividerModule,
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService, UserService, FoodtruckServicesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

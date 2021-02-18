@@ -33,10 +33,6 @@ export class ProfileComponent implements OnInit {
       .subscribe((success) => (this.datos = success));
   }
 
-  hola() {
-    console.log(this.datos);
-  }
-
   deshabilitar(bool: boolean) {
     this.deshabilitado = bool;
   }

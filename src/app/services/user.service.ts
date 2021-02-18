@@ -64,4 +64,41 @@ export class UserService {
         })
       );
   }
+
+  agregarFoodtruck(
+    id: string,
+    nombre: string,
+    descripcion: string,
+    urlWeb: any,
+    whatsapp: any,
+    instagram: any,
+    twitter: any,
+    provincia: string,
+    ciudad: string,
+    cantValoraciones: number,
+    cantPromediosTotales: number,
+    promedioTotal: number
+  ) {
+    let urlRequest = this.url
+      .concat('usuarios/')
+      .concat(id)
+      .concat('/foodtrucks');
+    return this.http.post(
+      urlRequest,
+      {
+        nombre,
+        descripcion,
+        urlWeb,
+        whatsapp,
+        instagram,
+        twitter,
+        provincia,
+        ciudad,
+        cantValoraciones,
+        cantPromediosTotales,
+        promedioTotal,
+      },
+      { withCredentials: true }
+    );
+  }
 }
