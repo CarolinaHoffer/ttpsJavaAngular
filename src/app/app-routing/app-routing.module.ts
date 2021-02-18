@@ -6,12 +6,12 @@ import { LoginComponent } from '../components/login/login.component';
 import { FormTemplateComponent } from '../components/formTemplate/formTemplate.component';
 import { SignupComponent } from '../components/signup/signup.component';
 import { HomeTemplateComponent } from '../components/home/home-template/home-template.component';
-
+import { ProfileComponent } from '../components/profile/profile.component';
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeTemplateComponent,
-    children: [],
+    children: [{ path: 'profile', component: ProfileComponent }],
   },
   {
     path: 'new',
