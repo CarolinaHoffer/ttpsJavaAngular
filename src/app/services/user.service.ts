@@ -29,9 +29,39 @@ export class UserService {
       .pipe(tap((response) => console.log('se genero bien'), shareReplay()));
   }
 
-  logout() {
+  getUsuario(id: string) {
+    let urlRequest = this.url.concat('usuarios/').concat(id);
     return this.http
-      .post(this.url.concat('logout'), {})
-      .subscribe((success) => localStorage.removeItem('user'));
+      .get(urlRequest, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((response) => {
+          return response;
+        })
+      );
+  }
+
+  editarUsuario(
+    id: string,
+    nombre: string,
+    apellido: string,
+    email: string,
+    contrasenia: string,
+    telefono: string,
+    foodtrucker: boolean
+  ) {
+    let urlRequest = this.url.concat('usuarios/').concat(id);
+    return this.http
+      .put(
+        urlRequest,
+        { nombre, apellido, email, contrasenia, telefono, foodtrucker },
+        { withCredentials: true }
+      )
+      .pipe(
+        tap((response) => {
+          return response;
+        })
+      );
   }
 }

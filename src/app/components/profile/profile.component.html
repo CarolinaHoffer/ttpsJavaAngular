@@ -1,1 +1,85 @@
-<p>profile works!</p>
+<div id="container">
+  <mat-card id="form-card">
+    <mat-card-header id="card-header">
+      <mat-card-title>Mis datos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form
+        ngNativeValidate
+        #initForm="ngForm"
+        class="form-signin"
+        (ngSubmit)="
+          editar(nombre.value, apellido.value, email.value, telefono.value)
+        "
+      >
+        <input
+          #nombre
+          [disabled]="deshabilitado"
+          value="{{ datos.nombre }}"
+          type="text"
+          class="form-control form-input"
+          placeholder="Nombre"
+          required
+          autofocus
+        />
+        <input
+          #apellido
+          [disabled]="deshabilitado"
+          value="{{ datos.apellido }}"
+          type="text"
+          class="form-control form-input"
+          placeholder="Apellido"
+          required
+          autofocus
+        />
+        <input
+          #email
+          [disabled]="deshabilitado"
+          value="{{ datos.email }}"
+          type="email"
+          class="form-control form-input"
+          placeholder="Email"
+          required
+          autofocus
+        />
+        <div *ngIf="deshabilitado == false">
+          <p class="alert-form" *ngIf="error.status === 409">
+            Este email ya está en uso
+          </p>
+        </div>
+        <input
+          #telefono
+          [disabled]="deshabilitado"
+          value="{{ datos.telefono }}"
+          type="text"
+          class="form-control form-input"
+          placeholder="Teléfono"
+        />
+        <button
+          mat-raised-button
+          class="form-button submit-form-button"
+          *ngIf="deshabilitado"
+          (click)="deshabilitar(false)"
+        >
+          Editar
+        </button>
+        <button
+          mat-raised-button
+          type="submit"
+          class="form-button submit-form-button"
+          *ngIf="deshabilitado == false"
+        >
+          Listo
+        </button>
+      </form>
+      <button
+        mat-raised-button
+        class="ghost-button"
+        *ngIf="deshabilitado == false"
+        (click)="deshabilitar(true)"
+      >
+        Cancelar
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
