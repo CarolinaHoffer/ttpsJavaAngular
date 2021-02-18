@@ -7,11 +7,13 @@ import { FormTemplateComponent } from '../components/formTemplate/formTemplate.c
 import { SignupComponent } from '../components/signup/signup.component';
 import { HomeTemplateComponent } from '../components/home/home-template/home-template.component';
 import { ProfileComponent } from '../components/profile/profile.component';
+import { HomepageComponent } from '../components/homepage/homepage.component';
+
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeTemplateComponent,
-    children: [{ path: 'profile', component: ProfileComponent }],
+    children: [{ path: 'profile', component: ProfileComponent }, {path:'homepage', component: HomepageComponent}]
   },
   {
     path: 'new',

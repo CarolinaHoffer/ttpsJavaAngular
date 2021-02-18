@@ -28,6 +28,8 @@ import { MatDividerModule } from '@angular/material/divider';
 // ---- Services ----
 import { AuthService } from './services/authentication.service';
 import { UserService } from './services/user.service';
+import { HomepageComponent } from './components/homepage/homepage.component';
+
 
 const appRoutes: Routes = [
   {
@@ -45,6 +47,7 @@ const appRoutes: Routes = [
     HomeTemplateComponent,
     NavbarComponent,
     ProfileComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
