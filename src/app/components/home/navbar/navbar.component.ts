@@ -8,14 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  foodtrucker: boolean = false;
+  user: any;
+  respuesta: any;
+
   constructor(private authService: AuthService, private router: Router) {}
 
-  userLog = true;
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.respuesta = this.authService.getCurrentUser();
+    this.user = JSON.parse(this.respuesta);
+    this.foodtrucker = this.user.foodtrucker;
+  }
 
   logout() {
-    this.authService.logout();
-    this.router.navigate(['login']);
+    this.authService
+      .logout()
+      .subscribe((success) => this.router.navigate(['/login']));
   }
 }
