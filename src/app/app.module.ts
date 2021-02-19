@@ -20,6 +20,7 @@ import { NewFoodtruckComponent } from './components/new-foodtruck/new-foodtruck.
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { FoodtruckDetailComponent } from './components/foodtruck-detail/foodtruck-detail.component';
 import { FoodtruckmanagementComponent } from './components/foodtruckmanagement/foodtruckmanagement.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 // ---- Material ----
 
@@ -28,7 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 
 // ---- Services ----
 import { AuthService } from './services/authentication.service';
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     FoodtruckmanagementComponent,
     NewFoodtruckComponent,
     FoodtruckDetailComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
