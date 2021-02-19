@@ -32,6 +32,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AuthService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 import { FoodtruckServicesService } from './services/foodtruckServices.service';
+import { AuthGuard } from './services/authGuard.service';
+import { SessionGuard } from './services/sessionGuard.service';
 
 const appRoutes: Routes = [
   {
@@ -65,7 +67,13 @@ const appRoutes: Routes = [
     MatCardModule,
     MatDividerModule,
   ],
-  providers: [AuthService, UserService, FoodtruckServicesService],
+  providers: [
+    AuthService,
+    UserService,
+    FoodtruckServicesService,
+    AuthGuard,
+    SessionGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

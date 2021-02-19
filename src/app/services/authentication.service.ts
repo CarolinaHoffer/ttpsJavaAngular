@@ -28,6 +28,10 @@ export class AuthService {
     return localStorage.getItem('user');
   }
 
+  isLogged() {
+    return localStorage.getItem('user') != null;
+  }
+
   login(email: string, contrasenia: string) {
     return this.http
       .post(
@@ -45,7 +49,9 @@ export class AuthService {
     return this.http
       .post(this.url.concat('logout'), {}, { withCredentials: true })
       .pipe(
-        tap((response) => localStorage.removeItem('user')),
+        tap((response) => {
+          localStorage.removeItem('user');
+        }),
         shareReplay()
       );
   }
