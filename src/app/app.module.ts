@@ -20,6 +20,7 @@ import { NewFoodtruckComponent } from './components/new-foodtruck/new-foodtruck.
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { FoodtruckDetailComponent } from './components/foodtruck-detail/foodtruck-detail.component';
 import { FoodtruckmanagementComponent } from './components/foodtruckmanagement/foodtruckmanagement.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 // ---- Material ----
 
@@ -61,6 +62,7 @@ const appRoutes: Routes = [
     NewFoodtruckComponent,
     FoodtruckDetailComponent,
     DialogDeleteFoodtruckComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

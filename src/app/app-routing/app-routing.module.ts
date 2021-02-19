@@ -11,6 +11,7 @@ import { HomepageComponent } from '../components/homepage/homepage.component';
 import { FoodtruckmanagementComponent } from '../components/foodtruckmanagement/foodtruckmanagement.component';
 import { NewFoodtruckComponent } from '../components/new-foodtruck/new-foodtruck.component';
 import { FoodtruckDetailComponent } from '../components/foodtruck-detail/foodtruck-detail.component';
+import { NotFoundComponent } from '../components/not-found/not-found.component';
 
 //Servicios
 import { AuthGuard } from '../services/authGuard.service';
@@ -37,10 +38,11 @@ const appRoutes: Routes = [
         component: FoodtruckDetailComponent,
         canActivate: [AuthGuard],
       },
-      { path: 'foodtruckmanagement',
-        component: FoodtruckmanagementComponent, 
+      {
+        path: 'foodtruckmanagement',
+        component: FoodtruckmanagementComponent,
         canActivate: [AuthGuard],
-      }
+      },
     ],
   },
   {
@@ -56,6 +58,7 @@ const appRoutes: Routes = [
     ],
   },
   { path: 'login', component: LoginComponent, canActivate: [SessionGuard] },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
