@@ -29,12 +29,12 @@ export class AuthService {
   }
 
   getCurrentUserId() {
-    var respuesta = this.getCurrentUser()
+    var respuesta = this.getCurrentUser();
     var user = JSON.parse(respuesta || '{}');
     respuesta = user.id.toString();
-    return respuesta || "#";
+    return respuesta || '#';
   }
-  
+
   isLogged() {
     return localStorage.getItem('user') != null;
   }
