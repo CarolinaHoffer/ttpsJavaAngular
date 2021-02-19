@@ -88,7 +88,10 @@ export class NewFoodtruckComponent implements OnInit {
         0
       )
       .subscribe(
-        (success) => this.router.navigate(['foodtruckmanagement']),
+        (success) => {
+          this.authService.setSession(success);
+          this.router.navigate(['homepage']);
+        },
         (error) => (this.error = error)
       );
   }
