@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Eliminando foodtruck...</h2>
+<mat-dialog-content class="mat-typography">
+    <h3>¿Estas seguro de eliminar el foodtruck con nombre {{nombre}}?</h3>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+<button mat-button (click)="close()">Cancelar</button>
+<button mat-button (click)="save()" cdkFocusInitial>Aceptar</button>
+</mat-dialog-actions>

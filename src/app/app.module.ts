@@ -29,6 +29,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 // ---- Services ----
 import { AuthService } from './services/authentication.service';
@@ -36,6 +38,7 @@ import { UserService } from './services/user.service';
 import { FoodtruckServicesService } from './services/foodtruckServices.service';
 import { AuthGuard } from './services/authGuard.service';
 import { SessionGuard } from './services/sessionGuard.service';
+import { DialogDeleteFoodtruckComponent } from './components/foodtruckmanagement/dialog-delete-foodtruck/dialog-delete-foodtruck.component';
 
 const appRoutes: Routes = [
   {
@@ -57,6 +60,7 @@ const appRoutes: Routes = [
     FoodtruckmanagementComponent,
     NewFoodtruckComponent,
     FoodtruckDetailComponent,
+    DialogDeleteFoodtruckComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,10 @@ const appRoutes: Routes = [
     MatCardModule,
     MatDividerModule,
     MatTableModule,
+    MatDialogModule,
+    MatButtonToggleModule,
   ],
+  entryComponents: [DialogDeleteFoodtruckComponent],
   providers: [
     AuthService,
     UserService,

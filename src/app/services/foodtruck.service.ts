@@ -34,6 +34,14 @@ export class FoodtruckService {
       );
   }
 
+  eliminarFoodtruck(id: string) {
+    let urlRequest = this.url.concat('foodtrucks/').concat(id);
+    return this.http.delete(
+      urlRequest,
+      { withCredentials: true }
+    );
+  }
+
   editarFoodtruck(
     id: string,
     nombre: string,
