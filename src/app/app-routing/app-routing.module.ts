@@ -9,7 +9,7 @@ import { HomeTemplateComponent } from '../components/home/home-template/home-tem
 import { ProfileComponent } from '../components/profile/profile.component';
 import { HomepageComponent } from '../components/homepage/homepage.component';
 import { NewFoodtruckComponent } from '../components/new-foodtruck/new-foodtruck.component';
-
+import { FoodtruckDetailComponent } from '../components/foodtruck-detail/foodtruck-detail.component';
 const appRoutes: Routes = [
   {
     path: '',
@@ -17,6 +17,7 @@ const appRoutes: Routes = [
     children: [
       { path: 'profile', component: ProfileComponent },
       { path: 'homepage', component: HomepageComponent },
+      { path: 'foodtruck/:id', component: FoodtruckDetailComponent },
     ],
   },
   {

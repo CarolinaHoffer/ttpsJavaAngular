@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 // ---- Components ----
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -16,8 +18,7 @@ import { HomeTemplateComponent } from './components/home/home-template/home-temp
 import { ProfileComponent } from './components/profile/profile.component';
 import { NewFoodtruckComponent } from './components/new-foodtruck/new-foodtruck.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-
-import { AppRoutingModule } from './app-routing/app-routing.module';
+import { FoodtruckDetailComponent } from './components/foodtruck-detail/foodtruck-detail.component';
 
 // ---- Material ----
 
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
     ProfileComponent,
     HomepageComponent,
     NewFoodtruckComponent,
+    FoodtruckDetailComponent,
   ],
   imports: [
     BrowserModule,
