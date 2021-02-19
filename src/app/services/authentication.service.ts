@@ -20,7 +20,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  private setSession(user: any) {
+  setSession(user: any) {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
