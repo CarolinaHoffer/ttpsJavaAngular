@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -13,9 +13,11 @@ export class FoodtruckmanagementComponent implements OnInit {
   foodtrucks: any;
   constructor(private userService: UserService, private router: Router) { }
 
+
+
   ngOnInit(): void {
     this.userService.misFoodtrucks().subscribe(
-      (success) => this.foodtrucks = success,
+      (success) => (this.foodtrucks = success), 
       (error) => (this.error = error)
     );
   }

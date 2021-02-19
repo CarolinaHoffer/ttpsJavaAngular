@@ -1,7 +1,7 @@
 <div id="foodtruckmanagement">
     <p style="font-size: 30px;letter-spacing: 1px; margin-bottom: 1em;"><strong>Mis foodtrucks</strong></p>
-    <div>
-        <table mat-table [dataSource]="foodtrucks" class="mat-elevation-z8">
+    <div class="nu-table">
+        <table mat-table [dataSource]="foodtrucks">
             <!-- Foodtruck Column -->
             <ng-container matColumnDef="foodtruck">
                 <th mat-header-cell *matHeaderCellDef> Foodtruck </th>
@@ -9,9 +9,9 @@
             </ng-container>
 
             <!-- Descripcion Column -->
-            <ng-container matColumnDef="descripcion">
+            <ng-container matColumnDef="descripcion" >
                 <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-                <td mat-cell *matCellDef="let foodtruck" id="descripcion"> {{foodtruck.descripcion}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore consectetur similique illo aut tenetur molestiae fuga commodi natus eaque vero quisquam optio voluptate ex esse quibusdam, ab iusto. Fuga, nulla. </td>
+                <td mat-cell *matCellDef="let foodtruck" id="descripcion"> {{foodtruck.descripcion}} </td>
             </ng-container>
 
             <!-- Provincia Column -->
@@ -35,7 +35,7 @@
             <!-- Editar Column -->
             <ng-container matColumnDef="editar">
                 <th mat-header-cell *matHeaderCellDef> Editar </th>
-                <td mat-cell *matCellDef="let foodtruck"> <a href="#"><mat-icon>edit</mat-icon></a> </td>
+                <td mat-cell *matCellDef="let foodtruck"> <a href="/foodtruck/"><mat-icon>edit</mat-icon></a> </td>
             </ng-container>
 
             <!-- Eliminar Column -->
@@ -46,6 +46,6 @@
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+        </table>       
     </div>
 </div>
