@@ -9,20 +9,53 @@ import { HomeTemplateComponent } from '../components/home/home-template/home-tem
 import { ProfileComponent } from '../components/profile/profile.component';
 import { HomepageComponent } from '../components/homepage/homepage.component';
 import { FoodtruckmanagementComponent } from '../components/foodtruckmanagement/foodtruckmanagement.component';
+import { NewFoodtruckComponent } from '../components/new-foodtruck/new-foodtruck.component';
+import { FoodtruckDetailComponent } from '../components/foodtruck-detail/foodtruck-detail.component';
+
+//Servicios
+import { AuthGuard } from '../services/authGuard.service';
+import { SessionGuard } from '../services/sessionGuard.service';
 
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeTemplateComponent,
-    children: [{ path: 'profile', component: ProfileComponent }, {path:'homepage', component: HomepageComponent},
-               { path: 'foodtruckmanagement', component: FoodtruckmanagementComponent }]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'homepage',
+        component: HomepageComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'foodtruck/:id',
+        component: FoodtruckDetailComponent,
+        canActivate: [AuthGuard],
+      },
+      { path: 'foodtruckmanagement',
+        component: FoodtruckmanagementComponent, 
+        canActivate: [AuthGuard],
+      }
+    ],
   },
   {
     path: 'new',
     component: FormTemplateComponent,
-    children: [{ path: 'user', component: SignupComponent }],
+    children: [
+      { path: 'user', component: SignupComponent, canActivate: [SessionGuard] },
+      {
+        path: 'foodtruck',
+        component: NewFoodtruckComponent,
+        canActivate: [AuthGuard],
+      },
+    ],
   },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [SessionGuard] },
 ];
 
 @NgModule({

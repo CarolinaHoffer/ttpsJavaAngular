@@ -1,6 +1,6 @@
 #form-card {
   position: absolute;
-  height: 85%;
+  height: 90%;
   width: 50%;
   left: 30%;
   margin-top: -45px;
@@ -41,7 +41,8 @@
   left: 42%;
 }
 
-#alert-form {
+.alert-form {
   color: red;
   text-align: center;
+  left: 5%;
 }

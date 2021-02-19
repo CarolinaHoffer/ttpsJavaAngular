@@ -27,7 +27,10 @@ export class UserService {
         { nombre, apellido, contrasenia, email, telefono },
         { withCredentials: true }
       )
-      .pipe(tap((response) => console.log('se genero bien'), shareReplay()));
+      .pipe(
+        tap((response) => console.log('se genero bien')),
+        shareReplay()
+      );
   }
 
   getUsuario(id: string) {
@@ -76,4 +79,41 @@ export class UserService {
       )
       .pipe(tap((response) => console.log('se encontraron los foodtrucks'), shareReplay()));
   }
+
+  agregarFoodtruck(
+    id: string,
+    nombre: string,
+    descripcion: string,
+    urlWeb: any,
+    whatsapp: any,
+    instagram: any,
+    twitter: any,
+    provincia: string,
+    ciudad: string,
+    cantValoraciones: number,
+    cantPromediosTotales: number,
+    promedioTotal: number
+  ) {
+    let urlRequest = this.url
+      .concat('usuarios/')
+      .concat(id)
+      .concat('/foodtrucks');
+    return this.http.post(
+      urlRequest,
+      {
+        nombre,
+        descripcion,
+        urlWeb,
+        whatsapp,
+        instagram,
+        twitter,
+        provincia,
+        ciudad,
+        cantValoraciones,
+        cantPromediosTotales,
+        promedioTotal,
+      },
+      { withCredentials: true }
+    );
+    }
 }

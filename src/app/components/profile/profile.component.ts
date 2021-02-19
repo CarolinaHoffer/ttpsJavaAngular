@@ -33,10 +33,6 @@ export class ProfileComponent implements OnInit {
       .subscribe((success) => (this.datos = success));
   }
 
-  hola() {
-    console.log(this.datos);
-  }
-
   deshabilitar(bool: boolean) {
     this.deshabilitado = bool;
   }
@@ -53,7 +49,7 @@ export class ProfileComponent implements OnInit {
         this.datos.foodtrucker
       )
       .subscribe(
-        (success) => this.router.navigate(['']),
+        (success) => this.router.navigate(['homepage']),
         (error) => (this.error = error)
       );
   }

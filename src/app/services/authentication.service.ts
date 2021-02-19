@@ -34,6 +34,10 @@ export class AuthService {
     respuesta = user.id.toString();
     return respuesta || "#";
   }
+  
+  isLogged() {
+    return localStorage.getItem('user') != null;
+  }
 
   login(email: string, contrasenia: string) {
     return this.http
@@ -52,7 +56,9 @@ export class AuthService {
     return this.http
       .post(this.url.concat('logout'), {}, { withCredentials: true })
       .pipe(
-        tap((response) => localStorage.removeItem('user')),
+        tap((response) => {
+          localStorage.removeItem('user');
+        }),
         shareReplay()
       );
   }

@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
     this.userService
       .register(nombre, apellido, email, contrasenia, telefono)
       .subscribe(
-        (success) => this.router.navigate(['login']),
+        (success) => this.router.navigate(['homepage']),
         (error) => (this.error = error)
       );
   }

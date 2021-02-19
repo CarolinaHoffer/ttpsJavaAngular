@@ -1,0 +1,196 @@
+<mat-card id="form-card">
+  <mat-card-header id="card-header">
+    <mat-card-title>{{ foodtruck.nombre }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form
+      ngNativeValidate
+      #initForm="ngForm"
+      class="form-signin"
+      (ngSubmit)="
+        editar(
+          nombre.value,
+          descripcion.value,
+          web.value,
+          whatsapp.value,
+          twitter.value,
+          instagram.value,
+          provincia.value,
+          ciudad.value
+        )
+      "
+    >
+      <div id="left-block" class="block">
+        <p class="input-label">Nombre del foodtruck</p>
+        <input
+          #nombre
+          [disabled]="deshabilitado"
+          value="{{ foodtruck.nombre }}"
+          type="text"
+          id="name-input"
+          class="form-control form-input"
+          placeholder="Ej. La Sushineta"
+          required
+          autofocus
+        />
+        <p class="alert-form" *ngIf="error.status === 409">
+          Este nombre ya está en uso
+        </p>
+        <p class="input-label">Descripción</p>
+        <textarea
+          #descripcion
+          [disabled]="deshabilitado"
+          value="{{ foodtruck.descripcion }}"
+          id="big-text-area-form"
+          rows="3"
+          cols="60"
+          class="form-control text-area-form"
+          required
+          autofocus
+          placeholder="Ej. Nos especializamos en comida oriental para disfrutar en cualquier lugar."
+        ></textarea>
+        <div class="input-labels-container">
+          <p class="input-label">Tipo de servicio</p>
+          <p class="input-label right-input-label" style="margin-left: 20%">
+            Descripción del servicio
+          </p>
+        </div>
+        <select
+          #servicio
+          required
+          disabled="true"
+          id="select-form"
+          class="form-control"
+          style="position: relative; top: -8%"
+        >
+          <option *ngFor="let servicio of servicios" value="{{ servicio.id }}">
+            {{ servicio.nombre }}
+          </option>
+        </select>
+        <textarea
+          #descripcionServ
+          [disabled]="deshabilitado"
+          id="small-text-area-form"
+          class="form-control text-area-form"
+          autofocus
+          placeholder="Otro"
+          disabled="true"
+        ></textarea>
+        <button
+          mat-raised-button
+          type="button"
+          class="form-button submit-form-button"
+          *ngIf="deshabilitado"
+          (click)="deshabilitar(false)"
+        >
+          Editar
+        </button>
+        <button
+          mat-raised-button
+          type="submit"
+          class="form-button submit-form-button"
+          *ngIf="deshabilitado == false"
+        >
+          Guardar
+        </button>
+        <button
+          mat-raised-button
+          class="ghost-button"
+          type="button"
+          *ngIf="deshabilitado == false"
+          (click)="deshabilitar(true)"
+        >
+          Cancelar
+        </button>
+        <a href="/foodtruckmanagement">
+          <!--Aca cambiar la url al detalle-->
+          <button
+            mat-raised-button
+            class="ghost-button"
+            type="button"
+            *ngIf="deshabilitado"
+          >
+            Volver
+          </button>
+        </a>
+      </div>
+      <mat-divider [vertical]="true"></mat-divider>
+      <div id="right-block" class="block">
+        <p class="input-label">Página web</p>
+        <input
+          #web
+          [disabled]="deshabilitado"
+          value="{{ foodtruck.urlWeb }}"
+          type="text"
+          id="name-input"
+          class="form-control form-input"
+          placeholder="www.sushineta.com.ar"
+          autofocus
+        />
+        <p class="input-label">Whatsapp</p>
+        <input
+          #whatsapp
+          [disabled]="deshabilitado"
+          value="{{ foodtruck.whatsapp }}"
+          type="text"
+          id="name-input"
+          class="form-control form-input"
+          placeholder="1234567"
+          autofocus
+        />
+        <div class="input-labels-container">
+          <p class="input-label">Twitter</p>
+          <p class="input-label right-input-label">Instagram</p>
+        </div>
+        <input
+          #twitter
+          [disabled]="deshabilitado"
+          value="{{ foodtruck.twitter }}"
+          type="text"
+          id="name-input"
+          class="form-control form-input mid-text-input"
+          placeholder="@lasushineta"
+          autofocus
+        />
+        <input
+          #instagram
+          [disabled]="deshabilitado"
+          value="{{ foodtruck.instagram }}"
+          type="text"
+          id="name-input"
+          class="form-control form-input mid-text-input"
+          placeholder="@lasushinetaok"
+          autofocus
+        />
+        <div class="input-labels-container">
+          <p class="input-label">Provincia</p>
+          <p class="input-label right-input-label">Ciudad</p>
+        </div>
+        <select
+          #provincia
+          [disabled]="deshabilitado"
+          value="{{ foodtruck.provincia }}"
+          id="select-form"
+          class="form-control"
+          stye="margin-top: 10px"
+          required
+        >
+          <option *ngFor="let provincia of provincias" value="{{ provincia }}">
+            {{ provincia }}
+          </option>
+        </select>
+        <input
+          #ciudad
+          [disabled]="deshabilitado"
+          value="{{ foodtruck.ciudad }}"
+          type="text"
+          id="name-input"
+          class="form-control form-input mid-text-input"
+          placeholder="La Plata"
+          required
+          autofocus
+        />
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
