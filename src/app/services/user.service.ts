@@ -26,7 +26,10 @@ export class UserService {
         { nombre, apellido, contrasenia, email, telefono },
         { withCredentials: true }
       )
-      .pipe(tap((response) => console.log('se genero bien'), shareReplay()));
+      .pipe(
+        tap((response) => console.log('se genero bien')),
+        shareReplay()
+      );
   }
 
   getUsuario(id: string) {
