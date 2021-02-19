@@ -1,5 +1,14 @@
 <div id="foodtruckmanagement">
+    <div id="title-add">
     <p style="font-size: 30px;letter-spacing: 1px; margin-bottom: 1em;"><strong>Mis foodtrucks</strong></p>
+    <a href="new/foodtruck"><button
+        mat-raised-button
+        class="add-button"
+        type="button"
+        style="position: absolute; right: 25px;"
+      >
+      <mat-icon>add</mat-icon>Agregar</button></a> 
+    </div>
     <div class="nu-table">
         <table mat-table [dataSource]="foodtrucks">
             <!-- Foodtruck Column -->

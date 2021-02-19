@@ -18,3 +18,17 @@ table {
     overflow-y:auto;
     max-height: 540px;
 }
+
+.add-button {
+    box-shadow: none;
+    border: none;
+    color: white;
+    font-weight: normal;
+    height: 35px;
+    background-color: #eb504c;
+    width: 16%;
+  }
+
+#title-add{
+    display: flex;
+}

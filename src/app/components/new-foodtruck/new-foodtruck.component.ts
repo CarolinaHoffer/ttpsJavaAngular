@@ -88,7 +88,7 @@ export class NewFoodtruckComponent implements OnInit {
         0
       )
       .subscribe(
-        (success) => this.router.navigate(['']),
+        (success) => this.router.navigate(['foodtruckmanagement']),
         (error) => (this.error = error)
       );
   }
