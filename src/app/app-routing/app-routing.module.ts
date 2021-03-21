@@ -57,7 +57,7 @@ const appRoutes: Routes = [
       },
     ],
   },
-  { path: 'login', component: LoginComponent, canActivate: [SessionGuard] },
+  { path: 'login', component: LoginComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

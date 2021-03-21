@@ -50,10 +50,11 @@ export class FoodtruckmanagementComponent implements OnInit {
     dialogRef.afterClosed().subscribe((data) => {
       this.getFoodtrucks();
       this.rta = this.authService.getCurrentUser();
-      if (this.foodtrucks.length == 1) {
+      if (this.foodtrucks.length === 0) {
         this.user = this.user = JSON.parse(this.rta);
         this.user.foodtrucker = false;
         this.authService.setSession(this.user);
+        alert("Como ya no existen mas foodtrucks dejaras de ser foodtrucker");
         this.router.navigate(['homepage']);
       }
       if (data) {
