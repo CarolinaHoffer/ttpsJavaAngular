@@ -26,7 +26,7 @@
     </button>
     <div class="line-bottom"></div>
 
-    <div *ngIf="foodtrucker">
+    <div *ngIf="navChangeServ.foodtrucker">
       <div class="line-top"></div>
       <a href="/foodtruckmanagement">
       <button mat-button class="button-nav">
@@ -37,7 +37,7 @@
       <div class="line-bottom"></div>
     </div>
 
-    <div *ngIf="foodtrucker">
+    <div *ngIf="navChangeServ.foodtrucker">
       <div class="line-top"></div>
       <button mat-button class="button-nav">
         <mat-icon aria-hidden="false">event_note</mat-icon> Gestionar pedidos
@@ -45,7 +45,7 @@
       <div class="line-bottom"></div>
     </div>
 
-    <div *ngIf="foodtrucker == false">
+    <div *ngIf="navChangeServ.foodtrucker == false">
       <div class="line-top"></div>
       <a href="/new/foodtruck">
         <button mat-button class="button-nav">

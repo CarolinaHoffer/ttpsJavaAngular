@@ -1,5 +1,6 @@
 <h2 mat-dialog-title>Eliminando foodtruck...</h2>
-<mat-dialog-content class="mat-typography">
+<mat-dialog-content>
+    <h2 class="alerta" *ngIf="cantidadFoodtrucks==1"><strong>Atención!</strong> Si borras este foodtruck dejarás de ser foodtrucker.</h2>
     <h3>¿Estas seguro de eliminar el foodtruck con nombre {{nombre}}?</h3>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

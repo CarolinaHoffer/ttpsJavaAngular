@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -30,8 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule} from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatDialogModule} from '@angular/material/dialog';
+import { MatButtonToggleModule} from '@angular/material/button-toggle';
 
 // ---- Services ----
 import { AuthService } from './services/authentication.service';
@@ -40,6 +40,8 @@ import { FoodtruckServicesService } from './services/foodtruckServices.service';
 import { AuthGuard } from './services/authGuard.service';
 import { SessionGuard } from './services/sessionGuard.service';
 import { DialogDeleteFoodtruckComponent } from './components/foodtruckmanagement/dialog-delete-foodtruck/dialog-delete-foodtruck.component';
+import { UserIsFoodtrucker } from './services/userIsFoodtrucker.service';
+import { DialogIsNotFoodtruckerComponent } from './components/foodtruckmanagement/dialog-is-not-foodtrucker/dialog-is-not-foodtrucker.component';
 
 const appRoutes: Routes = [
   {
@@ -63,6 +65,7 @@ const appRoutes: Routes = [
     FoodtruckDetailComponent,
     DialogDeleteFoodtruckComponent,
     NotFoundComponent,
+    DialogIsNotFoodtruckerComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,13 +82,14 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatButtonToggleModule,
   ],
-  entryComponents: [DialogDeleteFoodtruckComponent],
+  entryComponents: [DialogDeleteFoodtruckComponent, DialogIsNotFoodtruckerComponent],
   providers: [
     AuthService,
     UserService,
     FoodtruckServicesService,
     AuthGuard,
     SessionGuard,
+    UserIsFoodtrucker
   ],
   bootstrap: [AppComponent],
 })

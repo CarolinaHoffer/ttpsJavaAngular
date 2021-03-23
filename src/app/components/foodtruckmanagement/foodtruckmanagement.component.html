@@ -50,7 +50,7 @@
             <!-- Eliminar Column -->
             <ng-container matColumnDef="eliminar">
                 <th mat-header-cell *matHeaderCellDef> Eliminar </th>
-                <td mat-cell *matCellDef="let foodtruck"> <button mat-button (click)="openDialog(foodtruck.nombre, foodtruck.id)"><mat-icon>delete</mat-icon></button> </td>
+                <td mat-cell *matCellDef="let foodtruck"> <button mat-button (click)="openDialogDelete(foodtruck.nombre, foodtruck.id, foodtrucks.length)"><mat-icon>delete</mat-icon></button> </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

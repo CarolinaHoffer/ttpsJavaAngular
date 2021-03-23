@@ -10,6 +10,7 @@ import { FoodtruckService } from 'src/app/services/foodtruck.service';
 export class DialogDeleteFoodtruckComponent implements OnInit {
   nombre: string;
   id: string;
+  cantidadFoodtrucks: any;
 
   constructor(
     private foodtruckService: FoodtruckService,
@@ -18,6 +19,7 @@ export class DialogDeleteFoodtruckComponent implements OnInit {
   ) {
     this.nombre = data.nombre;
     this.id = data.id;
+    this.cantidadFoodtrucks = data.cantidadFoodtrucks;
   }
 
   ngOnInit(): void {}

@@ -35,6 +35,13 @@ export class AuthService {
     return respuesta || '#';
   }
 
+  isFoodtrucker() {
+    var respuesta = this.getCurrentUser();
+    var user = JSON.parse(respuesta || '{}');
+    respuesta = user.foodtrucker
+    return respuesta
+  }
+
   isLogged() {
     return localStorage.getItem('user') != null;
   }

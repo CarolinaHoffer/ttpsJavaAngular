@@ -15,6 +15,7 @@ import { NotFoundComponent } from '../components/not-found/not-found.component';
 
 //Servicios
 import { AuthGuard } from '../services/authGuard.service';
+import { UserIsFoodtrucker } from '../services/userIsFoodtrucker.service'
 import { SessionGuard } from '../services/sessionGuard.service';
 
 const appRoutes: Routes = [
@@ -41,7 +42,7 @@ const appRoutes: Routes = [
       {
         path: 'foodtruckmanagement',
         component: FoodtruckmanagementComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, UserIsFoodtrucker],
       },
     ],
   },
