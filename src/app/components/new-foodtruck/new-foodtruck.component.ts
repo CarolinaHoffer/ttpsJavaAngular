@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { FoodtruckServicesService } from '../../services/foodtruckServices.service';
-import { AuthService } from '../../services/authentication.service';
+import { AuthService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-new-foodtruck',
@@ -44,15 +44,13 @@ export class NewFoodtruckComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router,
     private authService: AuthService,
+    private router: Router,
     private foodtruckServices: FoodtruckServicesService
   ) {}
 
   ngOnInit() {
-    this.respuesta = this.authService.getCurrentUser();
-    this.user = JSON.parse(this.respuesta);
-    this.id = this.user.id.toString();
+    this.id = this.userService.getCurrentUserId();
     this.foodtruckServices
       .getServicios()
       .subscribe((success) => (this.servicios = success));
@@ -73,7 +71,7 @@ export class NewFoodtruckComponent implements OnInit {
       number = null;
     }
     this.userService
-      .agregarFoodtruck(
+      .newFoodtruck(
         this.id,
         nombre,
         descripcion,
@@ -89,7 +87,6 @@ export class NewFoodtruckComponent implements OnInit {
       )
       .subscribe(
         (success) => {
-          this.authService.setSession(success);
           this.router.navigate(['homepage']);
         },
         (error) => (this.error = error)

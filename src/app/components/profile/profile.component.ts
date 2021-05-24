@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 // ---- Services ----
 import { UserService } from '../../services/user.service';
-import { AuthService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,24 +11,16 @@ import { AuthService } from '../../services/authentication.service';
 })
 export class ProfileComponent implements OnInit {
   datos: any;
-  user: any;
   id: any;
-  respuesta: any;
   deshabilitado: boolean = true;
   error: any = '';
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private userService: UserService
-  ) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit() {
-    this.respuesta = this.authService.getCurrentUser();
-    this.user = JSON.parse(this.respuesta);
-    this.id = this.user.id.toString();
+    this.id = this.userService.getCurrentUserId();
     this.userService
-      .getUsuario(this.id)
+      .getUser(this.id)
       .subscribe((success) => (this.datos = success));
   }
 
@@ -39,7 +30,7 @@ export class ProfileComponent implements OnInit {
 
   editar(nombre: string, apellido: string, email: string, telefono: string) {
     this.userService
-      .editarUsuario(
+      .editUser(
         this.id,
         nombre,
         apellido,

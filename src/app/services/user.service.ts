@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Router } from '@angular/router';
 
-import { tap, shareReplay } from 'rxjs/operators';
+import { tap, shareReplay, map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { AuthService } from './authentication.service';
@@ -12,7 +12,11 @@ import { AuthService } from './authentication.service';
 export class UserService {
   url: String = environment.url;
 
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   register(
     nombre: string,
@@ -33,7 +37,17 @@ export class UserService {
       );
   }
 
-  getUsuario(id: string) {
+  getCurrentUserId() {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user).id : null;
+  }
+
+  isFoodtrucker() {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user).foodtrucker : null;
+  }
+
+  getUser(id: string) {
     let urlRequest = this.url.concat('usuarios/').concat(id);
     return this.http
       .get(urlRequest, {
@@ -46,7 +60,7 @@ export class UserService {
       );
   }
 
-  editarUsuario(
+  editUser(
     id: string,
     nombre: string,
     apellido: string,
@@ -69,18 +83,22 @@ export class UserService {
       );
   }
 
-  misFoodtrucks() {
-    let idUser;
-    idUser = this.authService.getCurrentUserId();
+  getFoodtrucks() {
+    const user = localStorage.getItem('user');
+    const id = user ? JSON.parse(user).id : null;
     return this.http
-      .get(
-        this.url.concat('usuarios/').concat(idUser).concat('/foodtrucks'),
-        { withCredentials: true }
-      )
-      .pipe(tap((response) => console.log('se encontraron los foodtrucks'), shareReplay()));
+      .get(this.url.concat('usuarios/').concat(id).concat('/foodtrucks'), {
+        withCredentials: true,
+      })
+      .pipe(
+        tap(
+          (response) => console.log('se encontraron los foodtrucks'),
+          shareReplay()
+        )
+      );
   }
 
-  agregarFoodtruck(
+  newFoodtruck(
     id: string,
     nombre: string,
     descripcion: string,
@@ -98,22 +116,32 @@ export class UserService {
       .concat('usuarios/')
       .concat(id)
       .concat('/foodtrucks');
-    return this.http.post(
-      urlRequest,
-      {
-        nombre,
-        descripcion,
-        urlWeb,
-        whatsapp,
-        instagram,
-        twitter,
-        provincia,
-        ciudad,
-        cantValoraciones,
-        cantPromediosTotales,
-        promedioTotal,
-      },
-      { withCredentials: true }
-    );
-    }
+    return this.http
+      .post<any>(
+        urlRequest,
+        {
+          nombre,
+          descripcion,
+          urlWeb,
+          whatsapp,
+          instagram,
+          twitter,
+          provincia,
+          ciudad,
+          cantValoraciones,
+          cantPromediosTotales,
+          promedioTotal,
+        },
+        { withCredentials: true }
+      )
+      .pipe(
+        map((credentials) => {
+          //cambia de token si pasa a ser foodtrucker
+          if (credentials && credentials.token) {
+            this.authService.setSession(credentials);
+          }
+          return credentials;
+        })
+      );
+  }
 }

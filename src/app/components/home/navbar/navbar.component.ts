@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/authentication.service';
 import { Router } from '@angular/router';
 import { NavbarChangeService } from 'src/app/services/navbar-change.service';
+import { UserService } from 'src/app/services/user.service';
+import { AuthService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,18 +10,18 @@ import { NavbarChangeService } from 'src/app/services/navbar-change.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  user: any;
-  respuesta: any;
+  foodtrucker: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, public navChangeServ: NavbarChangeService) {}
+  constructor(
+    private userService: UserService,
+    private authService: AuthService,
+    private router: Router,
+    public navChangeServ: NavbarChangeService
+  ) {}
 
   ngOnInit() {
-    this.respuesta = this.authService.getCurrentUser();
-    this.user = JSON.parse(this.respuesta);
-    this.navChangeServ.foodtrucker=this.user.foodtrucker;
+    this.foodtrucker = this.userService.isFoodtrucker();
   }
-
-
 
   logout() {
     this.authService

@@ -1,16 +1,10 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpInterceptor,
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
-import { CanActivate, Router } from '@angular/router';
+import { tap, shareReplay, map } from 'rxjs/operators';
 
-import { Observable } from 'rxjs';
-import { tap, shareReplay } from 'rxjs/operators';
+import * as jwtDecode from 'jwt-decode';
+import * as moment from 'moment';
 
 import { environment } from '../../environments/environment';
 
@@ -20,42 +14,40 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  setSession(user: any) {
-    localStorage.setItem('user', JSON.stringify(user));
-  }
+  setSession(authResult: any) {
+    const token = authResult.token;
+    const payload = <JWTPayload>jwtDecode.default(token);
+    console.log(payload);
+    const expiresAt = moment.unix(payload.exp);
 
-  getCurrentUser() {
-    return localStorage.getItem('user');
-  }
-
-  getCurrentUserId() {
-    var respuesta = this.getCurrentUser();
-    var user = JSON.parse(respuesta || '{}');
-    respuesta = user.id.toString();
-    return respuesta || '#';
-  }
-
-  isFoodtrucker() {
-    var respuesta = this.getCurrentUser();
-    var user = JSON.parse(respuesta || '{}');
-    respuesta = user.foodtrucker
-    return respuesta
+    localStorage.setItem('token', token);
+    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem(
+      'user',
+      JSON.stringify({ id: payload.jti, foodtrucker: payload.foodtrucker })
+    );
   }
 
   isLogged() {
-    return localStorage.getItem('user') != null;
+    return localStorage.getItem('token') != null;
   }
 
   login(email: string, contrasenia: string) {
+    console.log('estoy en login');
     return this.http
-      .post(
+      .post<any>(
         this.url.concat('autenticacion'),
         { email, contrasenia },
         { withCredentials: true }
       )
       .pipe(
-        tap((response) => this.setSession(response)),
-        shareReplay()
+        map((credentials) => {
+          //login exitoso si hay un token en la rta
+          if (credentials && credentials.token) {
+            this.setSession(credentials);
+          }
+          return credentials;
+        })
       );
   }
 
@@ -64,9 +56,17 @@ export class AuthService {
       .post(this.url.concat('logout'), {}, { withCredentials: true })
       .pipe(
         tap((response) => {
+          localStorage.removeItem('token');
+          localStorage.removeItem('expires_at');
           localStorage.removeItem('user');
         }),
         shareReplay()
       );
   }
+}
+
+interface JWTPayload {
+  jti: string;
+  foodtrucker: string;
+  exp: number;
 }
