@@ -102,6 +102,7 @@ export class UserService {
     id: string,
     nombre: string,
     descripcion: string,
+    servicio: string,
     urlWeb: any,
     whatsapp: any,
     instagram: any,
@@ -115,7 +116,8 @@ export class UserService {
     let urlRequest = this.url
       .concat('usuarios/')
       .concat(id)
-      .concat('/foodtrucks');
+      .concat('/foodtrucks?servicio=')
+      .concat(servicio);
     return this.http
       .post<any>(
         urlRequest,

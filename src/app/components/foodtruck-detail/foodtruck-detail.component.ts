@@ -69,6 +69,7 @@ export class FoodtruckDetailComponent implements OnInit {
   editar(
     nombre: string,
     descripcion: string,
+    servicio: string,
     web: any = null,
     whatsapp: any = null,
     twitter: any = null,
@@ -85,6 +86,7 @@ export class FoodtruckDetailComponent implements OnInit {
         this.id.toString(),
         nombre,
         descripcion,
+        servicio,
         web,
         whatsapp,
         instagram,

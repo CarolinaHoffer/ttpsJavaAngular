@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavbarChangeService } from 'src/app/services/navbar-change.service';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from '../../../services/authentication.service';
 
@@ -15,8 +14,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private userService: UserService,
     private authService: AuthService,
-    private router: Router,
-    public navChangeServ: NavbarChangeService
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -24,8 +22,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.authService
-      .logout()
-      .subscribe((success) => this.router.navigate(['/login']));
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

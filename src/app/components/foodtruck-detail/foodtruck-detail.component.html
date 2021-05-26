@@ -11,6 +11,7 @@
         editar(
           nombre.value,
           descripcion.value,
+          servicio.value,
           web.value,
           whatsapp.value,
           twitter.value,
@@ -58,7 +59,8 @@
         <select
           #servicio
           required
-          disabled="true"
+          [disabled]="deshabilitado"
+          [value]="servicio"
           id="select-form"
           class="form-control"
           style="position: relative; top: -8%"

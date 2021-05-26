@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -29,9 +29,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatTableModule} from '@angular/material/table';
-import { MatDialogModule} from '@angular/material/dialog';
-import { MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 // ---- Services ----
 import { AuthService } from './services/authentication.service';
@@ -42,6 +42,7 @@ import { SessionGuard } from './services/sessionGuard.service';
 import { DialogDeleteFoodtruckComponent } from './components/foodtruckmanagement/dialog-delete-foodtruck/dialog-delete-foodtruck.component';
 import { UserIsFoodtrucker } from './services/userIsFoodtrucker.service';
 import { DialogIsNotFoodtruckerComponent } from './components/foodtruckmanagement/dialog-is-not-foodtrucker/dialog-is-not-foodtrucker.component';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 const appRoutes: Routes = [
   {
@@ -82,14 +83,18 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatButtonToggleModule,
   ],
-  entryComponents: [DialogDeleteFoodtruckComponent, DialogIsNotFoodtruckerComponent],
+  entryComponents: [
+    DialogDeleteFoodtruckComponent,
+    DialogIsNotFoodtruckerComponent,
+  ],
   providers: [
     AuthService,
     UserService,
     FoodtruckServicesService,
     AuthGuard,
     SessionGuard,
-    UserIsFoodtrucker
+    UserIsFoodtrucker,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

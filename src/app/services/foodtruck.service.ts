@@ -63,6 +63,7 @@ export class FoodtruckService {
     id: string,
     nombre: string,
     descripcion: string,
+    servicio: string,
     urlWeb: any,
     whatsapp: any,
     instagram: any,
@@ -73,7 +74,11 @@ export class FoodtruckService {
     cantPromediosTotales: number,
     promedioTotal: number
   ) {
-    let urlRequest = this.url.concat('foodtrucks/').concat(id);
+    let urlRequest = this.url
+      .concat('foodtrucks/')
+      .concat(id)
+      .concat('?servicio=')
+      .concat(servicio);
     return this.http.put(
       urlRequest,
       {

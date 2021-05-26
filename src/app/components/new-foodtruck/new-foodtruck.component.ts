@@ -59,6 +59,7 @@ export class NewFoodtruckComponent implements OnInit {
   alta(
     nombre: string,
     descripcion: string,
+    servicio: string,
     web: any = null,
     whatsapp: any = null,
     twitter: any = null,
@@ -75,6 +76,7 @@ export class NewFoodtruckComponent implements OnInit {
         this.id,
         nombre,
         descripcion,
+        servicio,
         web,
         number,
         instagram,

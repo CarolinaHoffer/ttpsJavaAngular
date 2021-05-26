@@ -17,7 +17,6 @@ export class AuthService {
   setSession(authResult: any) {
     const token = authResult.token;
     const payload = <JWTPayload>jwtDecode.default(token);
-    console.log(payload);
     const expiresAt = moment.unix(payload.exp);
 
     localStorage.setItem('token', token);
@@ -33,7 +32,6 @@ export class AuthService {
   }
 
   login(email: string, contrasenia: string) {
-    console.log('estoy en login');
     return this.http
       .post<any>(
         this.url.concat('autenticacion'),
@@ -52,16 +50,9 @@ export class AuthService {
   }
 
   logout() {
-    return this.http
-      .post(this.url.concat('logout'), {}, { withCredentials: true })
-      .pipe(
-        tap((response) => {
-          localStorage.removeItem('token');
-          localStorage.removeItem('expires_at');
-          localStorage.removeItem('user');
-        }),
-        shareReplay()
-      );
+    localStorage.removeItem('token');
+    localStorage.removeItem('expires_at');
+    localStorage.removeItem('user');
   }
 }
 
