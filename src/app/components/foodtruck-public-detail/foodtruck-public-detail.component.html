@@ -1,0 +1,31 @@
+<div id="content">
+    <div [ngStyle]="{display: 'flex'}">
+        <p id="nombre-label">{{foodtruck.nombre}}</p> 
+        <button
+            mat-raised-button
+            type="submit"
+            id="reservarButton"
+            (click)="openDialogCrearReserva()"></button>
+        >
+        Reservar
+        </button>
+    </div>
+<p class="info-label"><strong>Tipo de servicio:</strong>{{foodtruck.servicio.nombre}}</p>
+<p class="info-label"><strong>Email:</strong>{{foodtruck.urlWeb}}</p>
+<p class="info-label"><strong>Descripción:</strong>{{foodtruck.descripcion}}</p>
+<mat-grid-list cols="3" rowHeight="6:1" id="redes">
+    <mat-grid-tile *ngIf="foodtruck.whatsapp">
+        <p class="info-label"><strong>Whatsapp:</strong>{{foodtruck.whatsapp}}</p>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="foodtruck.twitter">
+        <p class="info-label"><strong>Twitter:</strong>{{foodtruck.twitter}}</p>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="foodtruck.instagram">
+        <p class="info-label"><strong>Instagram:</strong>{{foodtruck.instagram}}</p>
+    </mat-grid-tile>
+</mat-grid-list>
+<p class="info-label"><strong>Foto:</strong></p>
+<img *ngIf="foodtruck.galeria; else sinFoto" src="#" width="250" height= "250" alt="Foto foodtruck"/>
+                <ng-template #sinFoto><img src="../../../assets/img/foodtruck-cafe.png" width="250" height= "250" alt="Foto foodtruck"/>
+</ng-template>
+</div>

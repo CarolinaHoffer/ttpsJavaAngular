@@ -13,7 +13,7 @@
                     <mat-icon class="star-color" accent = "accent" warn = "warn" *ngFor="let star of stars(foodtruck.promedioTotal)">{{star}}</mat-icon>
                 </div>
                 <p>{{foodtruck.descripcion}}</p>
-                <a href="#" id="detalle-link" >Ver detalle</a>
+                <a [href]="'foodtruckView/'+ foodtruck.id" id="detalle-link" >Ver detalle</a>
             </div>              
         </div>
     </li>

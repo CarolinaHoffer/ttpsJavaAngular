@@ -1,0 +1,30 @@
+#content{
+    margin-top: 3%;
+    margin-left: 3%;
+    height: 520px;
+}
+
+#nombre-label {
+    font-weight: bold;
+    color: #787878;
+    margin-top: 1%;
+    font-size:35px; 
+}
+
+.info-label {
+    color: #787878;
+    margin-top: 2%;
+    margin-left: 1%;
+    font-size:20px; 
+}
+
+#redes{
+    margin-top: 35px;
+    width:80%
+}
+#reservarButton {
+    color: white;
+    background-color: #eb504c;
+    margin-bottom: 3%;
+    margin-left: 57%;
+}

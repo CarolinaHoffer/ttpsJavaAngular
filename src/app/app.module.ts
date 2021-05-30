@@ -47,6 +47,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { SearchFoodtruckComponent } from './components/search-foodtruck/search-foodtruck.component';
 import { ListaFoodtruckComponent } from './components/lista-foodtruck/lista-foodtruck.component';
 import { FoodtruckPublicDetailComponent } from './components/foodtruck-public-detail/foodtruck-public-detail.component';
+import { DialogCrearReservaComponent } from './components/foodtruck-public-detail/dialog-crear-reserva/dialog-crear-reserva.component';
 
 const appRoutes: Routes = [
   {
@@ -74,6 +75,7 @@ const appRoutes: Routes = [
     SearchFoodtruckComponent,
     ListaFoodtruckComponent,
     FoodtruckPublicDetailComponent,
+    DialogCrearReservaComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Reservando foodtruck...</h2>
+<mat-dialog-content>
+    <h3>¿Quiere reservar el foodtruck con nombre <strong>{{nombre}}</strong></h3>
+    
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+<button mat-button (click)="close()">Cancelar</button>
+<button mat-button (click)="save()" cdkFocusInitial>Aceptar</button>
+</mat-dialog-actions>
