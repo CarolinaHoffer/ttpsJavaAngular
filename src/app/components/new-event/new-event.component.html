@@ -1,0 +1,324 @@
+<div id="form-container">
+  <div id="title-container">
+    <h1 class="part-title">NUEVO</h1>
+    <img
+      src="../../../assets/img/foodtruck-luces.png"
+      alt="Foodtruck"
+      id="top-image-form"
+    />
+    <h1 class="part-title">EVENTO</h1>
+  </div>
+  <mat-card id="form-card">
+    <mat-card-content>
+      <form
+        ngNativeValidate
+        #initForm="ngForm"
+        class="form-signin"
+        (ngSubmit)="
+          onSubmit(
+            nombre.value,
+            tipo.value,
+            formaDePago.value,
+            diaInicio.value,
+            diaFin.value,
+            horaInicio.value,
+            minutosInicio.value,
+            horaFin.value,
+            minutosFin.value,
+            descripcion.value,
+            provincia.value,
+            ciudad.value,
+            calle.value,
+            numero.value,
+            nombreLugar.value,
+            codigoPostal.value,
+            email.value,
+            telefono.value
+          )
+        "
+      >
+        <div id="left-block" class="block">
+          <p class="input-label">Nombre del evento</p>
+          <input
+            #nombre
+            type="text"
+            id="name-input"
+            class="form-control form-input"
+            placeholder="Picurba"
+            required
+            autofocus
+          />
+          <p
+            class="alert-form"
+            *ngIf="error.status === 409"
+            style="text-align: center"
+          >
+            Ya creaste un evento con este nombre
+          </p>
+          <div class="input-labels-container">
+            <p class="input-label">Tipo de evento</p>
+            <p class="input-label right-input-label" style="margin-left: 25%">
+              ¿Quién paga la comida?
+            </p>
+          </div>
+          <input
+            #tipo
+            type="text"
+            id="event-type-input"
+            class="form-control form-input mid-text-input"
+            placeholder="Festival Gastronómico"
+            required
+            autofocus
+          />
+          <select
+            #formaDePago
+            id="select-pago-form"
+            class="form-control select-form"
+            required
+          >
+            <option value="asistentes">Asistentes</option>
+            <option value="organizador">Organizadores</option>
+          </select>
+          <div class="input-labels-container">
+            <p class="input-label">Día inicio</p>
+            <p class="input-label right-input-label" style="margin-left: 33%">
+              Día fin
+            </p>
+          </div>
+          <input
+            #diaInicio
+            type="text"
+            id="date-inicio-input"
+            class="form-control form-input mid-text-input"
+            autofocus
+            required
+            matInput
+            [matDatepicker]="inicioPicker"
+            [min]="minFromDate"
+            disabled
+            (dateChange)="updateToDate($event)"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="inicioPicker"
+            style="margin-left: -10%"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #inicioPicker disabled="false"></mat-datepicker>
+          <input
+            #diaFin
+            type="text"
+            id="date-fin-input"
+            class="form-control form-input mid-text-input"
+            autofocus
+            required
+            matInput
+            [matDatepicker]="finPicker"
+            [min]="minToDate"
+            disabled
+            style="margin-left: 8%; width: 38%"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="finPicker"
+            style="margin-left: -10%"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #finPicker disabled="false"></mat-datepicker>
+          <div class="input-labels-container">
+            <p class="input-label">Hora inicio</p>
+            <p class="input-label right-input-label" style="margin-left: 31%">
+              Hora fin
+            </p>
+          </div>
+          <select
+            #horaInicio
+            id="select-hour-inicio-form"
+            class="form-control hour-select select-form"
+            style="margin-left: 5%; height: 30px"
+            required
+          >
+            <option *ngFor="let hora of horas" value="{{ hora }}">
+              {{ hora }}
+            </option>
+          </select>
+          <select
+            #minutosInicio
+            id="select-minutes-inicio-form"
+            class="form-control hour-select select-form"
+            style="height: 30px"
+            required
+          >
+            <option value="00">00</option>
+            <option value="30">30</option>
+          </select>
+          <select
+            #horaFin
+            id="select-hour-fin-form"
+            class="form-control hour-select select-form"
+            required
+            style="margin-left: 15%; height: 30px"
+          >
+            <option *ngFor="let hora of horas" value="{{ hora }}">
+              {{ hora }}
+            </option>
+          </select>
+          <select
+            #minutosFin
+            id="select-minutes-fin-form"
+            class="form-control hour-select select-form"
+            style="height: 30px"
+            required
+          >
+            <option value="00">00</option>
+            <option value="30">30</option>
+          </select>
+          <p class="alert-form" *ngIf="horaError" style="margin-left: 5%">
+            La hora de fin no puede ser menor a la hora de inicio
+          </p>
+          <p class="input-label">Descripción</p>
+          <textarea
+            #descripcion
+            id="big-text-area-form"
+            rows="3"
+            cols="60"
+            class="form-control text-area-form"
+            required
+            autofocus
+            placeholder="Describe tu evento, tus necesidades, tipo de comida, características del emplazamiento, requisitos"
+          ></textarea>
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div id="right-block" class="block">
+          <div class="input-labels-container">
+            <p class="input-label">Provincia</p>
+            <p class="input-label right-input-label" style="margin-left: 35%">
+              Ciudad
+            </p>
+          </div>
+          <select
+            #provincia
+            id="provincia-select-form"
+            class="form-control select-form"
+            style="margin-left: 5%; margin-right: 4%"
+            required
+          >
+            <option
+              *ngFor="let provincia of provincias"
+              value="{{ provincia }}"
+            >
+              {{ provincia }}
+            </option>
+          </select>
+          <input
+            #ciudad
+            type="text"
+            id="ciudad-input"
+            class="form-control form-input mid-text-input"
+            placeholder="La Plata"
+            required
+            autofocus
+          />
+          <div class="input-labels-container">
+            <p class="input-label">Calle</p>
+            <p class="input-label right-input-label" style="margin-left: 42%">
+              Número
+            </p>
+          </div>
+          <input
+            #calle
+            type="text"
+            id="calle-input"
+            class="form-control form-input mid-text-input"
+            placeholder="Camino gral Belgrano"
+            autofocus
+            required
+          />
+          <input
+            #numero
+            type="text"
+            id="name-input"
+            class="form-control form-input mid-text-input"
+            placeholder="123"
+            autofocus
+            required
+            style="margin-left: 10%"
+          />
+          <p class="alert-form number-error" *ngIf="numeroError">
+            Debe ser un número
+          </p>
+          <div class="input-labels-container">
+            <p class="input-label">Nombre del lugar</p>
+            <p class="input-label right-input-label" style="margin-left: 23%">
+              Código postal
+            </p>
+          </div>
+          <input
+            #nombreLugar
+            type="text"
+            id="lugar-input"
+            class="form-control form-input mid-text-input"
+            placeholder="Republica de los niños"
+            autofocus
+            required
+          />
+          <input
+            #codigoPostal
+            type="text"
+            id="codigo-input"
+            class="form-control form-input mid-text-input"
+            placeholder="1900"
+            autofocus
+            required
+            style="margin-left: 10%"
+          />
+          <p class="alert-form number-error" *ngIf="codigoError">
+            Debe ser un número
+          </p>
+          <div class="input-labels-container">
+            <p class="input-label">Email</p>
+            <p class="input-label right-input-label" style="margin-left: 41%">
+              Teléfono
+            </p>
+          </div>
+          <input
+            #email
+            type="text"
+            id="email-input"
+            class="form-control form-input mid-text-input"
+            placeholder="picurba@contacto.com"
+            autofocus
+          />
+          <input
+            #telefono
+            type="text"
+            id="telefono-input"
+            class="form-control form-input mid-text-input"
+            placeholder="221123456"
+            autofocus
+            style="margin-left: 10%"
+          />
+          <p class="alert-form number-error" *ngIf="telefonoError">
+            Debe ser un número
+          </p>
+          <button
+            mat-raised-button
+            type="submit"
+            class="form-button"
+            id="submit-form-button"
+          >
+            Guardar
+          </button>
+          <a href="/foodtruckmanagement">
+            <button
+              mat-raised-button
+              class="form-button"
+              type="button"
+              id="cancel-form-button"
+            >
+              Cancelar
+            </button>
+          </a>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
