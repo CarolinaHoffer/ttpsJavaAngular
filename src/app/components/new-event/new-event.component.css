@@ -1,0 +1,130 @@
+#form-card {
+  position: absolute;
+  height: 88%;
+  width: 90%;
+  left: 10%;
+  margin-top: -40px;
+  z-index: 3;
+  border-radius: 10px;
+}
+
+#title-container {
+  z-index: 4;
+  position: relative;
+  width: 95%;
+  left: 10%;
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+}
+
+.part-title {
+  font-size: 50px;
+  margin-top: 35px;
+}
+
+.form-signin {
+  display: flex;
+}
+
+.block {
+  position: relative;
+  width: 50%;
+}
+
+.form-input {
+  width: 85%;
+  margin-bottom: 7px;
+  margin-left: 5%;
+  height: 15px;
+}
+
+.text-area-form {
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cccccc;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: inherit;
+  resize: none;
+  margin-bottom: 4px;
+}
+
+#big-text-area-form {
+  margin-left: 5%;
+  width: 87%;
+}
+
+#top-image-form {
+  position: relative;
+  z-index: 5;
+  width: 30%;
+  height: 10%;
+}
+
+#select-pago-form {
+  width: 42%;
+  margin-left: 7%;
+}
+
+.form-button {
+  position: relative;
+  box-shadow: none;
+  border: none;
+  color: white;
+  font-weight: normal;
+  height: 35px;
+  position: relative;
+  background-color: #eb504c;
+  width: 30%;
+  margin-top: 5%;
+  margin-bottom: 10px;
+  left: 5%;
+}
+#cancel-form-button {
+  color: #eb504c;
+  background-color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #eb504c;
+  margin-left: 15px;
+}
+
+.input-label {
+  font-weight: bold;
+  color: #787878;
+  margin-top: 8px;
+  margin-left: 5%;
+}
+
+.input-labels-container {
+  display: flex;
+}
+
+.right-input-label {
+  margin-left: 38%;
+}
+
+.mid-text-input {
+  width: 36%;
+}
+
+.alert-form {
+  color: red;
+  margin-bottom: -4px;
+}
+
+.number-error {
+  margin-left: 55%;
+}
+
+.hour-select {
+  width: 15%;
+  margin-left: 2%;
+  margin-bottom: 5px;
+}
+
+.select-form {
+  height: 44px;
+  margin-top: -2%;
+}

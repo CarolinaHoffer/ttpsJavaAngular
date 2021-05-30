@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
+
 // ---- Components ----
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -21,6 +23,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { FoodtruckDetailComponent } from './components/foodtruck-detail/foodtruck-detail.component';
 import { FoodtruckmanagementComponent } from './components/foodtruckmanagement/foodtruckmanagement.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NewEventComponent } from './components/new-event/new-event.component';
+import { DialogIsNotFoodtruckerComponent } from './components/foodtruckmanagement/dialog-is-not-foodtrucker/dialog-is-not-foodtrucker.component';
 
 // ---- Material ----
 
@@ -33,6 +37,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 // ---- Services ----
 import { AuthService } from './services/authentication.service';
@@ -42,11 +48,9 @@ import { AuthGuard } from './services/authGuard.service';
 import { SessionGuard } from './services/sessionGuard.service';
 import { DialogDeleteFoodtruckComponent } from './components/foodtruckmanagement/dialog-delete-foodtruck/dialog-delete-foodtruck.component';
 import { UserIsFoodtrucker } from './services/userIsFoodtrucker.service';
-import { DialogIsNotFoodtruckerComponent } from './components/foodtruckmanagement/dialog-is-not-foodtrucker/dialog-is-not-foodtrucker.component';
-import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { SearchFoodtruckComponent } from './components/search-foodtruck/search-foodtruck.component';
 import { ListaFoodtruckComponent } from './components/lista-foodtruck/lista-foodtruck.component';
-import { FoodtruckPublicDetailComponent } from './components/foodtruck-public-detail/foodtruck-public-detail.component';
+import { EventService } from './services/event.service';
 
 const appRoutes: Routes = [
   {
@@ -73,7 +77,7 @@ const appRoutes: Routes = [
     DialogIsNotFoodtruckerComponent,
     SearchFoodtruckComponent,
     ListaFoodtruckComponent,
-    FoodtruckPublicDetailComponent,
+    NewEventComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +94,8 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatButtonToggleModule,
     MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   entryComponents: [
     DialogDeleteFoodtruckComponent,
@@ -102,6 +108,7 @@ const appRoutes: Routes = [
     AuthGuard,
     SessionGuard,
     UserIsFoodtrucker,
+    EventService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
