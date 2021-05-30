@@ -1,7 +1,8 @@
+import { NgModule } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FoodtruckService } from '../../services/foodtruck.service';
-
+import { ListaFoodtruckComponent } from '../lista-foodtruck/lista-foodtruck.component'
 
 @Component({
   selector: 'app-homepage',
@@ -20,20 +21,5 @@ export class HomepageComponent implements OnInit {
     );
   }
 
-  stars(promedioTotal: number){
-    let promedioRange = Math.floor(promedioTotal);
-    let arrayStars = new Array();
-    for (var i = 0; i < promedioRange; i++) {
-      arrayStars.push("star");
-    }
-    if(promedioTotal-promedioRange >= 0.5){
-      arrayStars.push('star_half');
-    }
-    if( arrayStars.length != 5){
-      for (var i = arrayStars.length+1; i < 6; i++) {
-        arrayStars.push('star_border')
-      }
-    }
-    return arrayStars;
-  }
+  
 }

@@ -1,0 +1,21 @@
+<div id="content" [style.height.px]="heightMax">
+<ul>
+    <li style="none" *ngFor="let foodtruck of foodtrucks">
+        <div id="card">
+            <div id="card-foto">               
+                <img *ngIf="foodtruck.galeria; else sinFoto" src="#" width="150" height= "150" alt="Foto foodtruck"/>
+                <ng-template #sinFoto><img src="../../../assets/img/foodtruck-cafe.png" width="150" height= "150" alt="Foto foodtruck"/>
+                </ng-template>
+            </div>
+            <div id="card-info">
+                <div id="title-stars">
+                    <h3 style="margin-right: 10px" ><strong>{{foodtruck.nombre}}</strong></h3>
+                    <mat-icon class="star-color" accent = "accent" warn = "warn" *ngFor="let star of stars(foodtruck.promedioTotal)">{{star}}</mat-icon>
+                </div>
+                <p>{{foodtruck.descripcion}}</p>
+                <a href="#" id="detalle-link" >Ver detalle</a>
+            </div>              
+        </div>
+    </li>
+</ul>
+</div>

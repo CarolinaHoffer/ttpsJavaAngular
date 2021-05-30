@@ -1,0 +1,80 @@
+<div id="searchFoodtruck">
+    <p id="title" >Buscar Foodtruck</p>
+    <form
+        ngNativeValidate
+        #initForm="ngForm"
+        class="form-signin"
+        (ngSubmit)="
+          buscar(
+            provincia.value,
+            ciudad.value,
+            servicio.value,
+            nombre.value
+          )
+        "
+      >
+    <mat-grid-list cols="5" rowHeight="2:1">
+        <mat-grid-tile> 
+            <p class="select-label">Provincia</p>
+            <select
+                #provincia
+                class="select-form"
+            >
+            <option [value]="null">------------</option>
+            <option
+                *ngFor="let provincia of provincias"
+                value="{{ provincia }}"
+            >
+                {{ provincia }}
+            </option>
+            </select>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <p class="input-label">Ciudad</p>
+            <input
+            #ciudad
+            type="text"
+            class="form-input"
+            placeholder="Ej. La Plata"
+            autofocus
+            />
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <p class="select-label">Servicio</p>
+            <select
+                #servicio
+                class="select-form"
+            >
+            <option [value]="null">------------</option>
+            <option
+                *ngFor="let servicio of servicios"
+                value="{{ servicio.id }}"
+            >
+                {{ servicio.nombre }}
+            </option>
+            </select>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <p class="input-label">Nombre</p>
+            <input
+            #nombre
+            type="text"
+            class="form-input"
+            placeholder="Ej. La Sushineta"
+            autofocus
+            />
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button
+            mat-raised-button
+            type="submit"
+            id="searchButton"
+        >
+        <mat-icon>search</mat-icon>
+        </button>
+        </mat-grid-tile>
+    </mat-grid-list>
+    </form>
+    <p id="result" >Resultados</p>
+    <app-lista-foodtruck [foodtrucks]="foodtrucksResultado" [heightMax]="420"></app-lista-foodtruck>
+</div>

@@ -32,6 +32,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 // ---- Services ----
 import { AuthService } from './services/authentication.service';
@@ -43,6 +44,9 @@ import { DialogDeleteFoodtruckComponent } from './components/foodtruckmanagement
 import { UserIsFoodtrucker } from './services/userIsFoodtrucker.service';
 import { DialogIsNotFoodtruckerComponent } from './components/foodtruckmanagement/dialog-is-not-foodtrucker/dialog-is-not-foodtrucker.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { SearchFoodtruckComponent } from './components/search-foodtruck/search-foodtruck.component';
+import { ListaFoodtruckComponent } from './components/lista-foodtruck/lista-foodtruck.component';
+import { FoodtruckPublicDetailComponent } from './components/foodtruck-public-detail/foodtruck-public-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -67,6 +71,9 @@ const appRoutes: Routes = [
     DialogDeleteFoodtruckComponent,
     NotFoundComponent,
     DialogIsNotFoodtruckerComponent,
+    SearchFoodtruckComponent,
+    ListaFoodtruckComponent,
+    FoodtruckPublicDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +89,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatDialogModule,
     MatButtonToggleModule,
+    MatGridListModule,
   ],
   entryComponents: [
     DialogDeleteFoodtruckComponent,

@@ -1,0 +1,35 @@
+
+ul{
+    list-style:none; 
+}
+
+#card{
+    margin-bottom: 1em;
+    display: flex;
+    align-items: flex-start;
+}
+
+#card-foto{
+    background-color: rgb(238, 238, 238);
+}
+
+#card-info{
+    margin-left: 1em;
+    height: 150px;
+}
+
+#title-stars{
+    display: flex;
+}
+
+#detalle-link{
+    text-decoration: none;
+}
+
+.star-color {
+    color: rgb(238, 213, 74);
+}
+#content{
+    width: 92.5%;
+    overflow-x: auto;
+}
