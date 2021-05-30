@@ -12,10 +12,11 @@ import { FoodtruckmanagementComponent } from '../components/foodtruckmanagement/
 import { NewFoodtruckComponent } from '../components/new-foodtruck/new-foodtruck.component';
 import { FoodtruckDetailComponent } from '../components/foodtruck-detail/foodtruck-detail.component';
 import { NotFoundComponent } from '../components/not-found/not-found.component';
+import { NewEventComponent } from '../components/new-event/new-event.component';
 
 //Servicios
 import { AuthGuard } from '../services/authGuard.service';
-import { UserIsFoodtrucker } from '../services/userIsFoodtrucker.service'
+import { UserIsFoodtrucker } from '../services/userIsFoodtrucker.service';
 import { SessionGuard } from '../services/sessionGuard.service';
 
 const appRoutes: Routes = [
@@ -56,9 +57,10 @@ const appRoutes: Routes = [
         component: NewFoodtruckComponent,
         canActivate: [AuthGuard],
       },
+      { path: 'event', component: NewEventComponent, canActivate: [AuthGuard] },
     ],
   },
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
