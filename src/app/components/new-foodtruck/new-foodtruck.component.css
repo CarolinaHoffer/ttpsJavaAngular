@@ -64,6 +64,13 @@
   margin-right: 5%;
 }
 
+#select-service-form {
+  margin-left: 5%;
+  margin-top: 7%;
+  width: 89%;
+  margin-bottom: -20px;
+}
+
 #top-image-form {
   position: relative;
   z-index: 5;
@@ -117,4 +124,10 @@
   color: red;
   text-align: center;
   left: 5%;
+}
+
+.service-message {
+  text-align: center;
+  left: 5%;
+  color: gray;
 }

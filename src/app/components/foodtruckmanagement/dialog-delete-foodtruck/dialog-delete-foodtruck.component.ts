@@ -25,9 +25,9 @@ export class DialogDeleteFoodtruckComponent implements OnInit {
   ngOnInit(): void {}
 
   save() {
-    this.foodtruckService
-      .eliminarFoodtruck(this.id)
-      .subscribe(() => console.log('foodtruck eliminado'));
+    this.foodtruckService.eliminarFoodtruck(this.id).subscribe(() => {
+      console.log('foodtruck eliminado');
+    });
     this.dialogRef.close(this.id);
   }
 

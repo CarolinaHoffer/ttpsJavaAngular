@@ -53,16 +53,11 @@
             autofocus
             placeholder="Ej. Nos especializamos en comida oriental para disfrutar en cualquier lugar."
           ></textarea>
-          <div class="input-labels-container">
-            <p class="input-label">Tipo de servicio</p>
-            <p class="input-label right-input-label" style="margin-left: 20%">
-              Descripción del servicio
-            </p>
-          </div>
+          <p class="input-label">Tipo de servicio</p>
           <select
             #servicio
             required
-            id="select-form"
+            id="select-service-form"
             class="form-control"
             style="position: relative; top: -8%"
           >
@@ -73,14 +68,9 @@
               {{ servicio.nombre }}
             </option>
           </select>
-          <textarea
-            #descripcionServ
-            id="small-text-area-form"
-            class="form-control text-area-form"
-            autofocus
-            placeholder="Otro"
-            disabled="true"
-          ></textarea>
+          <p class="service-message">
+            Si seleccionas 'Otro' recordá incluir una descripcion del mismo
+          </p>
           <button
             mat-raised-button
             type="submit"
