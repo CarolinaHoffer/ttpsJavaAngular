@@ -27,6 +27,16 @@ export class AuthService {
     );
   }
 
+  getExpiration() {
+    const expiration = localStorage.getItem('expires_at');
+    const expiresAt = expiration ? JSON.parse(expiration) : null;
+    return moment(expiresAt);
+  }
+
+  isExpired() {
+    return moment().isAfter(this.getExpiration());
+  }
+
   isLogged() {
     return localStorage.getItem('token') != null;
   }
