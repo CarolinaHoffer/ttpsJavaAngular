@@ -25,6 +25,8 @@ import { FoodtruckmanagementComponent } from './components/foodtruckmanagement/f
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NewEventComponent } from './components/new-event/new-event.component';
 import { DialogIsNotFoodtruckerComponent } from './components/foodtruckmanagement/dialog-is-not-foodtrucker/dialog-is-not-foodtrucker.component';
+import { ReservasListComponent } from './components/reservas-list/reservas-list.component';
+import { ReservasTableComponent } from './components/reservas-list/table/reservas-table/reservas-table.component';
 
 // ---- Material ----
 
@@ -53,6 +55,7 @@ import { ListaFoodtruckComponent } from './components/lista-foodtruck/lista-food
 import { FoodtruckPublicDetailComponent } from './components/foodtruck-public-detail/foodtruck-public-detail.component';
 import { DialogCrearReservaComponent } from './components/foodtruck-public-detail/dialog-crear-reserva/dialog-crear-reserva.component';
 import { EventService } from './services/event.service';
+import { ReservaService } from './services/reserva.service';
 
 const appRoutes: Routes = [
   {
@@ -82,6 +85,8 @@ const appRoutes: Routes = [
     FoodtruckPublicDetailComponent,
     DialogCrearReservaComponent,
     NewEventComponent,
+    ReservasListComponent,
+    ReservasTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,6 +118,7 @@ const appRoutes: Routes = [
     SessionGuard,
     UserIsFoodtrucker,
     EventService,
+    ReservaService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],

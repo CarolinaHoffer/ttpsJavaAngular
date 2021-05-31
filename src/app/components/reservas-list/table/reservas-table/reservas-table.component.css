@@ -1,0 +1,30 @@
+.nu-table {
+  overflow-y: auto;
+  max-height: 540px;
+}
+
+.reservas-table-container {
+  position: relative;
+  height: 42.5%;
+  padding: 2%;
+}
+
+table {
+  width: 98%;
+}
+
+#descripcion {
+  max-width: 150px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#title-add {
+  display: flex;
+}
+
+.column-title {
+  font-size: large;
+  font-weight: bold;
+}

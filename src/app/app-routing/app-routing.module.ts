@@ -13,6 +13,7 @@ import { NewFoodtruckComponent } from '../components/new-foodtruck/new-foodtruck
 import { FoodtruckDetailComponent } from '../components/foodtruck-detail/foodtruck-detail.component';
 import { NotFoundComponent } from '../components/not-found/not-found.component';
 import { NewEventComponent } from '../components/new-event/new-event.component';
+import { ReservasListComponent } from '../components/reservas-list/reservas-list.component';
 
 //Servicios
 import { AuthGuard } from '../services/authGuard.service';
@@ -55,6 +56,11 @@ const appRoutes: Routes = [
       {
         path: 'foodtruckmanagement',
         component: FoodtruckmanagementComponent,
+        canActivate: [AuthGuard, UserIsFoodtrucker],
+      },
+      {
+        path: 'reservas',
+        component: ReservasListComponent,
         canActivate: [AuthGuard, UserIsFoodtrucker],
       },
     ],

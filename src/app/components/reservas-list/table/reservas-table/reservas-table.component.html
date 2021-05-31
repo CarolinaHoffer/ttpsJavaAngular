@@ -1,0 +1,88 @@
+<div class="reservas-table-container">
+  <div id="title-add">
+    <p
+      style="
+        font-size: 22px;
+        letter-spacing: 1px;
+        margin-bottom: 1em;
+        color: #7d7d7d;
+      "
+    >
+      <strong>{{ titulo }}</strong>
+    </p>
+  </div>
+  <div class="nu-table" [style.height.px]="heightMax">
+    <table mat-table [dataSource]="reservas">
+      <!-- Foodtruck Column -->
+      <ng-container matColumnDef="Foodtruck">
+        <th mat-header-cell *matHeaderCellDef class="column-title">
+          Foodtruck
+        </th>
+        <td mat-cell *matCellDef="let reserva">{{ reserva.foodtruck }}</td>
+      </ng-container>
+
+      <!-- Evento Column -->
+      <ng-container matColumnDef="Evento">
+        <th mat-header-cell *matHeaderCellDef class="column-title">Evento</th>
+        <td mat-cell *matCellDef="let reserva" id="descripcion">
+          {{ reserva.evento }}
+        </td>
+      </ng-container>
+
+      <!-- Fecha Column -->
+      <ng-container matColumnDef="Fecha">
+        <th mat-header-cell *matHeaderCellDef class="column-title">Fecha</th>
+        <td mat-cell *matCellDef="let reserva">{{ reserva.fecha }}</td>
+      </ng-container>
+
+      <!-- Hora Column -->
+      <ng-container matColumnDef="Hora">
+        <th mat-header-cell *matHeaderCellDef class="column-title">Hora</th>
+        <td mat-cell *matCellDef="let reserva">{{ reserva.hora }}</td>
+      </ng-container>
+
+      <!-- Lugar Column -->
+      <ng-container matColumnDef="Lugar">
+        <th mat-header-cell *matHeaderCellDef class="column-title">Lugar</th>
+        <td mat-cell *matCellDef="let reserva">
+          {{ reserva.lugar }}
+        </td>
+      </ng-container>
+
+      <!-- Acciones Column -->
+      <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef class="column-title">Acciones</th>
+        <div *ngIf="isPendiente">
+          <td mat-cell *matCellDef="let reserva">
+            <button mat-button (click)="aceptarFunction(reserva.id)">
+              <mat-icon id="acept-icon" style="color: green; margin-left: -20px"
+                >check_circle_outline</mat-icon
+              >
+            </button>
+            <button mat-button (click)="rechazarFunction(reserva.id)">
+              <mat-icon
+                id="cancel-icon"
+                style="color: rgb(190, 2, 2); margin-left: -20px"
+                >highlight_off</mat-icon
+              >
+            </button>
+          </td>
+        </div>
+        <div *ngIf="!isPendiente">
+          <td mat-cell *matCellDef="let reserva">
+            <button
+              mat-button
+              (click)="terminarFunction(reserva.id)"
+              style="background-color: #eb504c; color: white"
+            >
+              Terminar
+            </button>
+          </td>
+        </div>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
