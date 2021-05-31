@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FoodtruckService } from '../../services/foodtruck.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogCrearReservaComponent } from './dialog-crear-reserva/dialog-crear-reserva.component';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-foodtruck-public-detail',
@@ -13,25 +14,34 @@ export class FoodtruckPublicDetailComponent implements OnInit {
   id: any;
   sub: any;
   foodtruck: any;
+  reservable: boolean = false;
+  userLogueado: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private foodtruckService: FoodtruckService,
+    private userService: UserService,
     public dialog: MatDialog)
-    {}
+    {
+      this.userLogueado = this.userService.getCurrentUserId()
+    }
 
+  reservableFoodtruck(){
+    return this.userLogueado!=this.foodtruck.duenio.id;
+  }
+  
   ngOnInit(): void {
     this.sub = this.route.params.subscribe((params) => {
       this.id = +params['id'];
     });
     this.foodtruckService.getFoodtruck(this.id).subscribe(
-      (success) => (this.foodtruck = success),
+      (success) => {this.foodtruck = success; this.reservable = this.reservableFoodtruck();},
       (error) => this.router.navigate(['homepage'])
     );
   }
 
-  openDialogDelete() {
+  openDialogCrearReserva() {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -46,6 +56,7 @@ export class FoodtruckPublicDetailComponent implements OnInit {
       dialogConfig
     );
 
-    dialogRef.afterClosed().subscribe((data) => {console.log(data)});
+    dialogRef.afterClosed().subscribe((message) => {if(message!=="")alert(message)});
+
   }
 }

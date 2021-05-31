@@ -1,13 +1,12 @@
 <div id="content">
     <div [ngStyle]="{display: 'flex'}">
         <p id="nombre-label">{{foodtruck.nombre}}</p> 
-        <button
+        <button *ngIf="reservable"
             mat-raised-button
             type="submit"
             id="reservarButton"
-            (click)="openDialogCrearReserva()"></button>
-        >
-        Reservar
+            (click)="openDialogCrearReserva()">
+            Reservar
         </button>
     </div>
 <p class="info-label"><strong>Tipo de servicio:</strong>{{foodtruck.servicio.nombre}}</p>

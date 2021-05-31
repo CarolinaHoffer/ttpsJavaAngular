@@ -1,10 +1,29 @@
 <h2 mat-dialog-title>Reservando foodtruck...</h2>
+<form
+        ngNativeValidate
+        #initForm="ngForm"
+        class="form-signin"
+        (ngSubmit)="
+          save(evento.value)"
+    >
 <mat-dialog-content>
     <h3>¿Quiere reservar el foodtruck con nombre <strong>{{nombre}}</strong></h3>
-    
-
+      <p class="select-label">Eventos</p>
+            <select
+                #evento
+                class="select-form"
+            >
+                <option [value]="null">------------</option>
+                <option
+                    *ngFor="let evento of eventosDeUsuario"
+                    value="{{evento.id}}"
+                >
+                    {{evento.nombre}}
+                </option>
+            </select>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-<button mat-button (click)="close()">Cancelar</button>
-<button mat-button (click)="save()" cdkFocusInitial>Aceptar</button>
+    <button mat-button type="submit" cdkFocusInitial class="button">Aceptar</button>
+    <button mat-button type="button" (click)="close()" class="button">Cancelar</button>
 </mat-dialog-actions>
+</form>

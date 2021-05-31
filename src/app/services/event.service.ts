@@ -44,4 +44,19 @@ export class EventService {
         })
       );
   }
+
+  eventosDeUsuarioSinReservaDeFoodtruck(
+    idUsuario:string,
+    idFoodtruck:string,
+  ){
+  let busqueda = `usuarios/${idUsuario}/eventosSinReservaDeFoodtruck?foodtruck=${idFoodtruck}`
+  return this.http
+    .get(this.url.concat(busqueda), { withCredentials: true })
+    .pipe(
+      tap(
+        (response) => console.log(response),
+        shareReplay()
+      )
+    );
+}
 }

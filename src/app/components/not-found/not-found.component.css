@@ -1,0 +1,15 @@
+.button-container{
+    display:inline-block;
+    position:relative;
+    background-color: #cceef0;
+    }
+    
+    .button-container button{
+    position: absolute;
+    bottom:1em;
+    right:45%;
+    background-color: #eb504c;
+    color:white;
+    font-size: 30px;
+    padding:10px 1em;
+    }
