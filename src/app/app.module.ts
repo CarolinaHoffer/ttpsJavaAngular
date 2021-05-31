@@ -56,6 +56,8 @@ import { FoodtruckPublicDetailComponent } from './components/foodtruck-public-de
 import { DialogCrearReservaComponent } from './components/foodtruck-public-detail/dialog-crear-reserva/dialog-crear-reserva.component';
 import { EventService } from './services/event.service';
 import { ReservaService } from './services/reserva.service';
+import { EventosListComponent } from './components/eventos-list/eventos-list.component';
+import { EventosTableComponent } from './components/eventos-list/eventos-table/eventos-table.component';
 
 const appRoutes: Routes = [
   {
@@ -87,6 +89,8 @@ const appRoutes: Routes = [
     NewEventComponent,
     ReservasListComponent,
     ReservasTableComponent,
+    EventosListComponent,
+    EventosTableComponent,
   ],
   imports: [
     BrowserModule,

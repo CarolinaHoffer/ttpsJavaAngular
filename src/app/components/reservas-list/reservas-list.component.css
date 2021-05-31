@@ -3,13 +3,3 @@
   height: 627px;
   display: block;
 }
-
-.add-button {
-  box-shadow: none;
-  border: none;
-  color: white;
-  font-weight: normal;
-  height: 35px;
-  background-color: #eb504c;
-  width: 16%;
-}

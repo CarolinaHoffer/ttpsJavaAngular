@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ReservaService } from 'src/app/services/reserva.service';
-import { ReservasTableComponent } from 'src/app/components/reservas-list/table/reservas-table/reservas-table.component';
 
 @Component({
   selector: 'app-reservas-list',

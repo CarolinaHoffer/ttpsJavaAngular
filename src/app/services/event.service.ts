@@ -1,24 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Router } from '@angular/router';
-
-import { tap } from 'rxjs/operators';
+import { tap, shareReplay } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
-import { AuthService } from './authentication.service';
 import { UserService } from './user.service';
 
 @Injectable()
 export class EventService {
   url: String = environment.url;
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    private authService: AuthService,
-    private userService: UserService
-  ) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   newEvent(
     diaInicio: string,
@@ -46,17 +38,36 @@ export class EventService {
   }
 
   eventosDeUsuarioSinReservaDeFoodtruck(
-    idUsuario:string,
-    idFoodtruck:string,
-  ){
-  let busqueda = `usuarios/${idUsuario}/eventosSinReservaDeFoodtruck?foodtruck=${idFoodtruck}`
-  return this.http
-    .get(this.url.concat(busqueda), { withCredentials: true })
-    .pipe(
-      tap(
-        (response) => console.log(response),
-        shareReplay()
-      )
+    idUsuario: string,
+    idFoodtruck: string
+  ) {
+    let busqueda = `usuarios/${idUsuario}/eventosSinReservaDeFoodtruck?foodtruck=${idFoodtruck}`;
+    return this.http
+      .get(this.url.concat(busqueda), { withCredentials: true })
+      .pipe(tap((response) => console.log(response), shareReplay()));
+  }
+
+  eventosFuturos() {
+    let urlRequest = this.url
+      .concat('usuarios/')
+      .concat(this.userService.getCurrentUserId())
+      .concat('/eventosFuturos');
+    return this.http.get(urlRequest, { withCredentials: true }).pipe(
+      tap((response) => {
+        return response;
+      })
     );
-}
+  }
+
+  eventosPasados() {
+    let urlRequest = this.url
+      .concat('usuarios/')
+      .concat(this.userService.getCurrentUserId())
+      .concat('/eventosPasados');
+    return this.http.get(urlRequest, { withCredentials: true }).pipe(
+      tap((response) => {
+        return response;
+      })
+    );
+  }
 }

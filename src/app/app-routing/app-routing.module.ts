@@ -14,6 +14,7 @@ import { FoodtruckDetailComponent } from '../components/foodtruck-detail/foodtru
 import { NotFoundComponent } from '../components/not-found/not-found.component';
 import { NewEventComponent } from '../components/new-event/new-event.component';
 import { ReservasListComponent } from '../components/reservas-list/reservas-list.component';
+import { EventosListComponent } from '../components/eventos-list/eventos-list.component';
 
 //Servicios
 import { AuthGuard } from '../services/authGuard.service';
@@ -62,6 +63,11 @@ const appRoutes: Routes = [
         path: 'reservas',
         component: ReservasListComponent,
         canActivate: [AuthGuard, UserIsFoodtrucker],
+      },
+      {
+        path: 'eventos',
+        component: EventosListComponent,
+        canActivate: [AuthGuard],
       },
     ],
   },
