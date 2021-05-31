@@ -50,12 +50,7 @@
           autofocus
           placeholder="Ej. Nos especializamos en comida oriental para disfrutar en cualquier lugar."
         ></textarea>
-        <div class="input-labels-container">
-          <p class="input-label">Tipo de servicio</p>
-          <p class="input-label right-input-label" style="margin-left: 20%">
-            Descripción del servicio
-          </p>
-        </div>
+        <p class="input-label">Tipo de servicio</p>
         <select
           #servicio
           required
@@ -63,21 +58,12 @@
           [value]="servicio"
           id="select-form"
           class="form-control"
-          style="position: relative; top: -8%"
+          style="position: relative; top: -2%; width: 88%"
         >
           <option *ngFor="let servicio of servicios" value="{{ servicio.id }}">
             {{ servicio.nombre }}
           </option>
         </select>
-        <textarea
-          #descripcionServ
-          [disabled]="deshabilitado"
-          id="small-text-area-form"
-          class="form-control text-area-form"
-          autofocus
-          placeholder="Otro"
-          disabled="true"
-        ></textarea>
         <button
           mat-raised-button
           type="button"

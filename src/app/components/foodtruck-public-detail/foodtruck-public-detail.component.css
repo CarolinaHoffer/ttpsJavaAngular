@@ -1,31 +1,31 @@
-#content{
-    margin-top: 3%;
-    margin-left: 3%;
-    height: 520px;
+#content {
+  margin-top: 3%;
+  margin-left: 3%;
+  height: 520px;
 }
 
 #nombre-label {
-    font-weight: bold;
-    color: #787878;
-    margin-top: 1%;
-    font-size:35px; 
+  font-weight: bold;
+  color: #787878;
+  margin-top: 1%;
+  font-size: 35px;
 }
 
 .info-label {
-    color: #787878;
-    margin-top: 2%;
-    margin-left: 1%;
-    font-size:20px; 
+  color: #787878;
+  margin-top: 2%;
+  margin-left: 1%;
+  font-size: 15px;
 }
 
-#redes{
-    margin-top: 35px;
-    width:80%
+#redes {
+  margin-top: 35px;
+  width: 80%;
 }
 #reservarButton {
-    color: white;
-    font-size:18px;
-    background-color: #eb504c;
-    margin-bottom: 3%;
-    margin-left: 57%;
+  color: white;
+  font-size: 15px;
+  background-color: #eb504c;
+  margin-bottom: 3%;
+  margin-left: 57%;
 }
