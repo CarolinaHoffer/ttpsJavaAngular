@@ -1,0 +1,12 @@
+<div id="foodtruckmanagement">
+  <app-eventos-table
+    #pendientestable
+    [eventos]="eventosFuturos"
+    [titulo]="tituloFuturos"
+  ></app-eventos-table>
+  <app-eventos-table
+    #aceptadastable
+    [eventos]="eventosPasados"
+    [titulo]="tituloPasados"
+  ></app-eventos-table>
+</div>
