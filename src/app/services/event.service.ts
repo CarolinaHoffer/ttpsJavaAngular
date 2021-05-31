@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Router } from '@angular/router';
 
-import { tap, shareReplay, map } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { AuthService } from './authentication.service';

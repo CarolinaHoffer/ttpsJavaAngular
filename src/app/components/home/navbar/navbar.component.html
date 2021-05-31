@@ -22,9 +22,9 @@
 
     <div class="line-top"></div>
     <a href="/searchfoodtruck">
-    <button mat-button class="button-nav">
-      <mat-icon aria-hidden="false">search</mat-icon> Buscar foodtruck
-    </button>
+      <button mat-button class="button-nav">
+        <mat-icon aria-hidden="false">search</mat-icon> Buscar foodtruck
+      </button>
     </a>
     <div class="line-bottom"></div>
 
@@ -41,9 +41,11 @@
 
     <div *ngIf="foodtrucker">
       <div class="line-top"></div>
-      <button mat-button class="button-nav">
-        <mat-icon aria-hidden="false">event_note</mat-icon> Gestionar pedidos
-      </button>
+      <a href="/reservas">
+        <button mat-button class="button-nav">
+          <mat-icon aria-hidden="false">event_note</mat-icon> Gestionar pedidos
+        </button>
+      </a>
       <div class="line-bottom"></div>
     </div>
 

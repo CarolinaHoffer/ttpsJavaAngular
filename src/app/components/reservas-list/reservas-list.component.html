@@ -1,0 +1,20 @@
+<div id="foodtruckmanagement">
+  <app-reservas-table
+    #pendientestable
+    [reservas]="reservasPendientes"
+    [titulo]="tituloPendientes"
+    [isPendiente]="pendientes"
+    (aceptar)="aceptarReserva()"
+    (rechazar)="rechazarReserva()"
+    (terminar)="terminarReserva()"
+  ></app-reservas-table>
+  <app-reservas-table
+    #aceptadastable
+    [reservas]="reservasAceptadas"
+    [titulo]="tituloAceptadas"
+    [isPendiente]="!pendientes"
+    (aceptar)="aceptarReserva()"
+    (rechazar)="rechazarReserva()"
+    (terminar)="terminarReserva()"
+  ></app-reservas-table>
+</div>

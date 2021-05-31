@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
-import { AuthService } from 'src/app/services/authentication.service';
 import { EventService } from 'src/app/services/event.service';
 
 @Component({
@@ -73,12 +71,7 @@ export class NewEventComponent implements OnInit {
     'Tucumán',
   ];
 
-  constructor(
-    private userService: UserService,
-    private authService: AuthService,
-    private eventService: EventService,
-    private router: Router
-  ) {}
+  constructor(private eventService: EventService, private router: Router) {}
 
   ngOnInit(): void {
     let today = new Date();
@@ -173,6 +166,7 @@ export class NewEventComponent implements OnInit {
         calle: calle,
         numero: numero,
         codigoPostal: codigoPostal,
+        descripcion: nombreLugar,
       };
       let evento = {
         nombre: nombre,
