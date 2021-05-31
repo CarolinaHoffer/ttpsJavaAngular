@@ -22,4 +22,9 @@ export class EventosTableComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  format(fecha: string) {
+    let partes = fecha.split('-');
+    return partes[2] + '/' + partes[1] + '/' + partes[0];
+  }
 }

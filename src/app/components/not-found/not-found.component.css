@@ -1,15 +1,33 @@
-.button-container{
-    display:inline-block;
-    position:relative;
-    background-color: #cceef0;
-    }
-    
-    .button-container button{
-    position: absolute;
-    bottom:1em;
-    right:45%;
-    background-color: #eb504c;
-    color:white;
-    font-size: 30px;
-    padding:10px 1em;
-    }
+.button-container {
+  display: inline-block;
+  position: relative;
+  background-color: #cceef0;
+}
+
+.button-container button {
+  position: absolute;
+  bottom: 2em;
+  right: 45%;
+  background-color: #eb504c;
+  color: white;
+  font-size: 20px;
+  padding: 10px 1em;
+}
+
+#code {
+  font-size: 85px;
+  font-weight: bold;
+  align-items: center;
+  color: #eb504c;
+  text-shadow: 1px 1px 2px #682422;
+}
+
+#message {
+  color: gray;
+}
+
+#text-container {
+  display: grid;
+  padding-top: 2.5%;
+  justify-content: center;
+}

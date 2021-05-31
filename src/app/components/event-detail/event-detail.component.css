@@ -1,66 +1,66 @@
-#content{
-    margin-top: 3%;
-    margin-left: 3%;
-    height: 520px;
-    width: 100%;
+#content {
+  margin-top: 3%;
+  margin-left: 3%;
+  height: 520px;
+  width: 100%;
 }
 
 #listado-table {
-    max-height: 200px;
-    overflow-x: auto;
+  max-height: 200px;
+  overflow-x: auto;
 }
 
-#div-left{
-    margin-left: 3%;
-    width: 470px;
+#div-left {
+  margin-left: 3%;
+  width: 470px;
 }
 
-#div-right{
-    margin-left: 6%;
-    width: 400px;
+#div-right {
+  margin-left: 6%;
+  width: 400px;
 }
 
 #nombre-label {
-    font-weight: bold;
-    color: #787878;
-    margin-top: 1%;
-    font-size:35px; 
+  font-weight: bold;
+  color: #787878;
+  margin-top: 1%;
+  font-size: 35px;
 }
 
 table {
-    width: 400px;
+  width: 400px;
 }
 
 #listado-label {
-    font-weight: bold;
-    color: #787878;
-    margin-top: 18%;
-    font-size:30px; 
+  font-weight: bold;
+  color: #787878;
+  margin-top: 18%;
+  font-size: 30px;
 }
 
 .info-label {
-    color: #787878;
-    margin-top: 5%;
-    margin-left: 1%;
-    font-size:20px; 
+  color: #787878;
+  margin-top: 5%;
+  margin-left: 1%;
+  font-size: 16px;
 }
 
 .estado-label {
-    color: #787878;
-    margin-top: 5%;
-    margin-left: 1%;
-    font-size:18px; 
+  color: #787878;
+  margin-top: 5%;
+  margin-left: 1%;
+  font-size: 18px;
 }
 .info-label-direccion {
-    color: #787878;
-    margin-top: 5%;
-    margin-left: 10%;
-    font-size:20px; 
+  color: #787878;
+  margin-top: 5%;
+  margin-left: 10%;
+  font-size: 20px;
 }
 
-#puntuarButton{
-    color: white;
-    background-color: #eb504c;
-    margin-bottom: 3%;
-    font-size: 18px;
+#puntuarButton {
+  color: white;
+  background-color: #eb504c;
+  margin-bottom: 3%;
+  font-size: 15px;
 }

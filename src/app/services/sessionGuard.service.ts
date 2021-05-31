@@ -7,7 +7,7 @@ export class SessionGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate() {
-    if (this.authService.isLogged()) {
+    if (this.authService.isLogged() && !this.authService.isExpired()) {
       this.router.navigate(['/homepage']);
       return false;
     }

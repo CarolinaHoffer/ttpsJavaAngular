@@ -90,7 +90,7 @@ const appRoutes: Routes = [
       { path: 'event', component: NewEventComponent, canActivate: [AuthGuard] },
     ],
   },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [SessionGuard] },
   { path: '**', component: NotFoundComponent },
 ];
 
