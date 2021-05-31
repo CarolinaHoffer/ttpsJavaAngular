@@ -1,0 +1,48 @@
+<div id="content">
+    <p id="nombre-label">{{evento.nombre}}</p>
+    <div [ngStyle]="{display: 'flex'}">
+            <div id="div-left">
+                <p class="info-label"><strong>Tipo de evento: </strong>{{evento.tipo}}</p>
+                <p class="info-label"><strong>Fecha de inicio del evento: </strong>{{evento.diaInicio}}</p>
+                <p class="info-label"><strong>Hora de inicio del evento: </strong>{{evento.horaInicio}}</p>
+                <p class="info-label"><strong>Fecha de fin del evento: </strong>{{evento.diaFin}}</p>            
+                <p class="info-label"><strong>Hora de fin del evento: </strong>{{evento.horaFin}}</p>
+                <p id="listado-label">Foodtrucks reservados</p>
+                <div id="listado-table">
+                    <table mat-table [dataSource]="reservas">
+                        <ng-container matColumnDef="foodtruck">
+                            <th mat-header-cell *matHeaderCellDef> Foodtruck </th>
+                            <td mat-cell *matCellDef="let reserva"><p class="info-label">{{reserva.nombreFoodtruck}}</p></td>
+                        </ng-container>
+                        <ng-container matColumnDef="estado">
+                            <th mat-header-cell *matHeaderCellDef> Estado </th>
+                            <td mat-cell *matCellDef="let reserva">
+                                <button mat-raised-button id="puntuarButton" *ngIf="reserva.estadoReserva=='esperandopuntaje'" (click)="openDialogPuntuar(reserva.idReserva,reserva.nombreFoodtruck)">Valorar</button>
+                                <p class="estado-label" *ngIf="reserva.estadoReserva!='esperandopuntaje'"><strong>{{reserva.estadoReserva}}</strong>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>       
+                </div>
+            </div>
+            <div id="div-right">
+                <p class="info-label"><strong>Descripcion: </strong>{{evento.descripcion}}</p>
+                <p class="info-label" *ngIf="evento.formaDePago"><strong>Forma de pago: </strong>{{evento.formaDePago}}</p>
+                <p class="info-label" *ngIf="evento.email"><strong>Email: </strong>{{evento.email}}</p>
+                <p class="info-label" *ngIf="evento.telefono"><strong>Teléfono: </strong>{{evento.telefono}}</p>
+                <p class="info-label"><strong>Dirección: </strong>{{evento.direccion.descripcion}}</p>
+                <div [ngStyle]="{display:'flex'}">
+                    <p class="info-label"><strong>Provincia: </strong>{{evento.direccion.provincia}}</p>
+                    <p class="info-label" style="margin-left: 5%;"><strong>Ciudad: </strong>{{evento.direccion.ciudad}}</p>
+                </div>
+                <div [ngStyle]="{display: 'flex'}">
+                    <p class="info-label"><strong>Calle: </strong>{{evento.direccion.calle}}</p>
+                    <p class="info-label" style="margin-left: 5%;"><strong>Número: </strong>{{evento.direccion.numero}}</p>
+                </div>
+            </div>
+    </div>
+    
+
+    
+</div> 

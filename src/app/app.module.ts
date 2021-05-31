@@ -53,6 +53,8 @@ import { ListaFoodtruckComponent } from './components/lista-foodtruck/lista-food
 import { FoodtruckPublicDetailComponent } from './components/foodtruck-public-detail/foodtruck-public-detail.component';
 import { DialogCrearReservaComponent } from './components/foodtruck-public-detail/dialog-crear-reserva/dialog-crear-reserva.component';
 import { EventService } from './services/event.service';
+import { EventDetailComponent } from './components/event-detail/event-detail.component';
+import { DialogPuntearFoodtruckComponent } from './components/event-detail/dialog-puntear-foodtruck/dialog-puntear-foodtruck.component';
 
 const appRoutes: Routes = [
   {
@@ -82,6 +84,8 @@ const appRoutes: Routes = [
     FoodtruckPublicDetailComponent,
     DialogCrearReservaComponent,
     NewEventComponent,
+    EventDetailComponent,
+    DialogPuntearFoodtruckComponent,
   ],
   imports: [
     BrowserModule,

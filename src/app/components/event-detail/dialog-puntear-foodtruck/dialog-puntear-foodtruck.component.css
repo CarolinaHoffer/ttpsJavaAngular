@@ -1,0 +1,11 @@
+.button{
+    color: white;
+    background-color: #eb504c;
+}
+
+.input-label {
+    color: #787878;
+    margin-top: 5%;
+    margin-left: 1%;
+    font-size:18px; 
+}

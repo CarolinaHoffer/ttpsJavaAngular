@@ -7,7 +7,19 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ReservaService {
-
+  puntuar(idReserva: any,limpieza: any, sabor: any, simpatia: any, calidadPrecio: any, disenio: any) {
+    let busqueda = `reservas/${idReserva}/puntaje`;
+    return this.http
+      .post(
+        this.url.concat(busqueda),
+        { limpieza, simpatia, calidadPrecio, sabor, disenio },
+        { withCredentials: true }
+      )
+      .pipe(
+        tap((response) => console.log('se genero bien')),
+        shareReplay()
+      );
+  }
   url: String = environment.url;
   constructor(private http: HttpClient) { }
 

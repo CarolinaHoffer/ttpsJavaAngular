@@ -45,6 +45,33 @@ export class EventService {
       );
   }
 
+  getEvent(id: any) {
+    let urlRequest = this.url.concat('eventos/').concat(id);
+    return this.http
+      .get(urlRequest, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((response) => {
+          return response;
+        })
+      );
+  }
+
+  getReservas(id: any) {
+    let busqueda = `eventos/${id}/reservas`
+    let urlRequest = this.url.concat(busqueda);
+    return this.http
+      .get(urlRequest, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((response) => {
+          return response;
+        })
+      );
+  }
+
   eventosDeUsuarioSinReservaDeFoodtruck(
     idUsuario:string,
     idFoodtruck:string,

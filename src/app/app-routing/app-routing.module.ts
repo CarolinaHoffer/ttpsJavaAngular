@@ -20,6 +20,7 @@ import { UserIsFoodtrucker } from '../services/userIsFoodtrucker.service';
 import { SessionGuard } from '../services/sessionGuard.service';
 import { SearchFoodtruckComponent } from '../components/search-foodtruck/search-foodtruck.component';
 import { FoodtruckPublicDetailComponent } from '../components/foodtruck-public-detail/foodtruck-public-detail.component';
+import { EventDetailComponent } from '../components/event-detail/event-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -50,6 +51,11 @@ const appRoutes: Routes = [
       {
         path: 'foodtruckView/:id',
         component: FoodtruckPublicDetailComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'evento/:id',
+        component: EventDetailComponent,
         canActivate: [AuthGuard],
       },
       {

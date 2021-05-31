@@ -40,10 +40,10 @@ export class DialogCrearReservaComponent implements OnInit {
       reservar(this.id, idEvento)
       .subscribe(
         (success)=>{this.message="Se agrego la reserva con éxito";},
-        (error)=>(this.message="No se pudo reservar"))
+        (error)=>(this.message="No se pudo reservar"),
+        ()=>(this.dialogRef.close(this.message)))
     }
-    else{this.message="No se puede reservar con un evento vacío";} 
-    this.dialogRef.close(this.message);
+    else{this.dialogRef.close("No se puede reservar con un evento vacío");} 
   }
 
   close() {

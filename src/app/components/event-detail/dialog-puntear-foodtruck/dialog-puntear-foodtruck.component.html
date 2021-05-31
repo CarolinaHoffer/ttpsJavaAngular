@@ -1,0 +1,71 @@
+<h2 mat-dialog-title>Puntuando foodtruck {{nombreFoodtruck}}</h2>
+<form
+        ngNativeValidate
+        #initForm="ngForm"
+        class="form-signin"
+        (ngSubmit)="
+          save(limpieza.value,sabor.value, simpatia.value, calidadPrecio.value, disenio.value)"
+    >
+<mat-dialog-content>
+      <p class="input-label">Limpieza:</p>
+      <select
+        #limpieza
+        class="select-form"
+      >
+        <option [value]="1">1</option>
+        <option [value]="2">2</option>
+        <option [value]="3">3</option>
+        <option [value]="4">4</option>
+        <option [value]="5">5</option>
+      </select>
+      <p class="input-label">Sabor:</p>
+      <select
+        #sabor
+        class="select-form"
+      >
+        <option [value]="1">1</option>
+        <option [value]="2">2</option>
+        <option [value]="3">3</option>
+        <option [value]="4">4</option>
+        <option [value]="5">5</option>
+      </select>
+      <p class="input-label">Calidad Precio:</p>
+      <select
+        #calidadPrecio
+        class="select-form"
+      >
+        <option [value]="1">1</option>
+        <option [value]="2">2</option>
+        <option [value]="3">3</option>
+        <option [value]="4">4</option>
+        <option [value]="5">5</option>
+      </select>
+      <p class="input-label">Simpatia:</p>
+      <select
+        #simpatia
+        class="select-form"
+      >
+        <option [value]="1">1</option>
+        <option [value]="2">2</option>
+        <option [value]="3">3</option>
+        <option [value]="4">4</option>
+        <option [value]="5">5</option>
+      </select>
+      <p class="input-label">Diseño:</p>
+      <select
+        #disenio
+        class="select-form"
+      >
+        <option [value]="1">1</option>
+        <option [value]="2">2</option>
+        <option [value]="3">3</option>
+        <option [value]="4">4</option>
+        <option [value]="5">5</option>
+      </select>
+            
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button type="submit" cdkFocusInitial class="button">Enviar</button>
+    <button mat-button type="button" (click)="close()" class="button">Cancelar</button>
+</mat-dialog-actions>
+</form> 
